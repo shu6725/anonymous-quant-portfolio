@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+
+export const prerender = true;
+---
+
+<BaseLayout title="Projects" description="Independent market-research and visualization project scaffolds.">
+  <section class="page-intro shell">
+    <p class="eyebrow">Projects</p>
+    <h1>Research tools and interactive demonstrations.</h1>
+    <p class="lead">Initial project pages establish a careful, public-safe home for simulations, visualizations and reproducible notes. They intentionally contain no confidential methods, data or performance claims.</p>
+  </section>
+  <section class="shell section" aria-label="Project list">
+    <div class="project-grid projects-full">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

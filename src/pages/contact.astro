@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../data/profile';
+
+export const prerender = true;
+---
+
+<BaseLayout title="Contact" description="Contact for selected freelance and contract work.">
+  <section class="page-intro shell reading-width contact-page">
+    <p class="eyebrow">Contact</p>
+    <h1>Selected freelance and contract work.</h1>
+    <p class="lead">For quantitative research, trading-data analysis, derivatives analytics, digital asset research and small financial-software prototypes.</p>
+    <div class="contact-block">
+      <span>Email</span>
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    </div>
+    <p class="placeholder-note"><strong>Before publishing:</strong> replace the placeholder email in <code>src/data/profile.ts</code>.</p>
+  </section>
+</BaseLayout>

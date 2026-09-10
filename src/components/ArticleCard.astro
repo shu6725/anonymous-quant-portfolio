@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { internalPath } from '../utils/paths';
+
+interface Props {
+  article: CollectionEntry<'research'>;
+}
+
+const { article } = Astro.props;
+const slug = article.id.replace(/\.(md|mdx)$/, '');
+const date = article.data.date.toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit',
+  timeZone: 'UTC',
+});
+---
+
+<article class="article-card">
+  <div class="article-meta">
+    <span>{article.data.category}</span>
+    <time datetime={article.data.date.toISOString()}>{date}</time>
+  </div>
+  <h3><a href={internalPath(`research/${slug}/`)}>{article.data.title}</a></h3>
+  <p>{article.data.description}</p>
+  <ul class="tag-list" aria-label={`${article.data.title} tags`}>
+    {article.data.tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+  <a class="text-link" href={internalPath(`research/${slug}/`)}>Read note <span aria-hidden="true">→</span></a>
+</article>

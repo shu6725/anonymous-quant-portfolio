@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export const prerender = true;
+
+const articles = (await getCollection('research', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Research" description="Technical notes on market microstructure, trading and quantitative research.">
+  <section class="page-intro shell">
+    <p class="eyebrow">Research</p>
+    <h1>Independent research notes.</h1>
+    <p class="lead">Short technical articles connecting market intuition, models, implementation and interpretation. The entries below are clearly marked placeholders until full research is published.</p>
+  </section>
+  <section class="shell section research-index" aria-label="Research articles">
+    <div class="article-list">
+      {articles.map((article) => <ArticleCard article={article} />)}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { background, expertise, profile, researchInterests } from '../data/profile';
+
+export const prerender = true;
+---
+
+<BaseLayout title="About" description="Anonymized background and research interests.">
+  <section class="page-intro shell reading-width">
+    <p class="eyebrow">About</p>
+    <h1>Markets practice, quantitative inquiry and implementation.</h1>
+    <p class="lead">{profile.summary}</p>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="background-heading">
+    <h2 id="background-heading">Background</h2>
+    <p>This portfolio intentionally describes professional experience at a high level. It does not name employers, publish confidential work, or make performance claims.</p>
+    <ol class="timeline">
+      {background.map((entry) => (
+        <li>
+          <p class="timeline-role">{entry.role}</p>
+          <p class="timeline-place">{entry.organisation}</p>
+          <p class="timeline-topics"><span>Focus areas</span>{entry.topics.join(' · ')}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Quantitative and technical skills</h2>
+    <div class="expertise-grid two-column">
+      {expertise.map((area) => (
+        <section>
+          <h3>{area.title}</h3>
+          <ul>{area.items.map((item) => <li>{item}</li>)}</ul>
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="interests-heading">
+    <h2 id="interests-heading">Research interests</h2>
+    <ul class="tag-list large-tags">{researchInterests.map((interest) => <li>{interest}</li>)}</ul>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="work-heading">
+    <h2 id="work-heading">How I work</h2>
+    <p>I aim to make research traceable from financial intuition through mathematical formulation, code, data or simulation, visualization, and practical interpretation. Independent examples use synthetic, public or published material; they are not representations of employer systems or confidential data.</p>
+  </section>
+</BaseLayout>

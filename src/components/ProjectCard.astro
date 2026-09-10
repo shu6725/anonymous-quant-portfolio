@@ -1,0 +1,20 @@
+---
+import type { Project } from '../data/projects';
+import { internalPath } from '../utils/paths';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <p class="eyebrow">{project.category}</p>
+  <h3><a href={internalPath(`projects/${project.slug}/`)}>{project.title}</a></h3>
+  <p>{project.summary}</p>
+  <ul class="tag-list" aria-label={`${project.title} topics`}>
+    {project.topics.slice(0, 3).map((topic) => <li>{topic}</li>)}
+  </ul>
+  <a class="text-link" href={internalPath(`projects/${project.slug}/`)}>View project <span aria-hidden="true">→</span></a>
+</article>
