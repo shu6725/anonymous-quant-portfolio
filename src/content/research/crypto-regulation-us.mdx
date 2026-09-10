@@ -1,0 +1,76 @@
+---
+title: "米国：解釈・商品審査・立法が同時に動く市場"
+description: "SEC・CFTCの共同解釈、GENIUS Act、DCM上のperpetual contractを、単一の包括規制と誤認しないための整理。"
+date: 2026-09-10
+category: "Crypto Regulation Series"
+tags:
+  - United States
+  - SEC
+  - CFTC
+  - Stablecoins
+draft: false
+---
+
+import ResearchFigure from '../../components/ResearchFigure.astro';
+import SeriesNavigation from '../../components/SeriesNavigation.astro';
+
+> **暗号資産規制シリーズ — United States**  
+> 米国の制度を読むときは、資産の呼び名だけで結論を出さない。資産、販売・取引の設計、商品、venueの四つを分ける。
+
+## 先に結論：一つの新法ではなく、複数のレーンが併走する
+
+米国の暗号資産市場を「規制が明確になった」とだけ言うのは粗い。市場構造の包括立法、ステーブルコインの連邦法、SECとCFTCによる解釈、DCM上の商品審査は、同じ問題を別の単位で扱っている。ある資産が何かという問いと、ある契約を誰にどう提供できるかという問いは、同じではない。
+
+<SeriesNavigation current="us" />
+
+<ResearchFigure
+  src="images/research/us-regulatory-path.svg"
+  alt="米国では既存法、当局解釈、商品審査という三つのレーンが並行し、暗号資産市場を一つのスイッチでは扱わないことを示す図"
+  caption="US regulatory path. 商品の名称ではなく、適用される法、取引の設計、venueを読む。"
+/>
+
+## 市場構造法案：下院通過と成立を混同しない
+
+2025年7月、下院は Digital Asset Market CLARITY Act を294対134で可決した。[House Clerk のロールコール](https://clerk.house.gov/Votes/2025199) これは重要な立法上の前進だが、下院通過だけで包括的な市場構造法が完成したわけではない。
+
+リサーチでは、ニュースの見出しを「法ができた」と丸めない方がよい。少なくとも、法案の段階、議会のどこを通ったか、当局の解釈か、個別の命令・承認かを分けて時系列に置く必要がある。これを分けないと、イベントスタディのイベント定義そのものが曖昧になる。
+
+## Payment stablecoin：GENIUS Actは一つのレーンを先に作った
+
+2025年7月に成立した GENIUS Act は、payment stablecoin を対象に、許可された発行体、流動資産による準備、月次開示を含む連邦枠組みを設けた。[ホワイトハウスの法成立告知](https://www.whitehouse.gov/briefings-statements/2025/07/the-president-signed-into-law-s-1582/) [ファクトシート](https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/)
+
+重要なのは、これを「暗号資産全般の制度が完成した」と読まないことだ。法定通貨と決済に近い payment stablecoin のレーンが、先に連邦レベルで明確化された、と理解する方が正確である。
+
+市場への含意は、発行体の健全性だけではない。取引所がどのステーブルコイン建てペアを整備するか、カストディや償還の導線をどう作るか、マーケットメイカーがどの担保を使えるかにも波及する。
+
+## 共同解釈：資産そのものと取引の設計を分ける
+
+2026年3月17日、SECはCFTCと共同で、特定の暗号資産および取引への連邦証券法の適用に関する解釈を公表した。SECのリリースは33-11412および34-105020であり、デジタル・コモディティ、デジタル・コレクティブル、デジタル・ツール、ステーブルコイン、デジタル証券という分類を示している。[SECのプレスリリース](https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets)
+
+同じ解釈は、暗号資産がそれ自体では証券でなくても、提供・販売の仕組みによって investment contract の分析対象になり得ることも扱う。したがって、トークンの名称や単発の分類だけを、あらゆる取引の免罪符として扱うべきではない。
+
+これは市場データの設計にも効く。例えば treatment 群を作るなら、「指定銘柄」と一括りにせず、解釈の対象、取引形態、取引venueを一次資料に照らして固定し、対象外群との事前の流動性・規模・BTCベータを分ける必要がある。
+
+## Perpetual contract：契約とvenueのレーン
+
+CFTCは2026年5月、perpetual contract の上場に関する方針を採択し、同時に KalshiEX のビットコイン現物価格参照 perpetual contract をDCM上の先物として承認した。[CFTCの方針公表](https://www.cftc.gov/PressRoom/PressReleases/pr-9242-26) [KalshiEXの承認](https://www.cftc.gov/PressRoom/PressReleases/9240-26)
+
+この事実から「米国ではperpが無制限に解禁された」とは言えない。CFTCの方針は、原資産の性質が異なる perpetual について個別の審査が適切だとしている。見るべきは、契約条件、上場主体、清算、顧客保護の設計である。
+
+| 読む単位 | 問うこと | 一般化してはいけないこと |
+| --- | --- | --- |
+| 資産 | 何に分類されるか | 一度の分類が全取引を決めること |
+| 取引 | 販売・勧誘・報酬はどう設計されるか | 資産名だけで法適用が決まること |
+| 契約 | 原資産、満期、決済、清算は何か | perpという商品名だけで可否が決まること |
+| venue | DCM等でどう上場・監督されるか | オフショアでの提供条件がそのまま移ること |
+
+## 市場を読むなら、法のニュースを実装単位に翻訳する
+
+価格反応の前に確認したいのは、次のような観測可能な変化である。
+
+- 米国内法人が提供できる**契約と顧客区分**
+- 法定通貨・ステーブルコイン間の**担保・償還の導線**
+- DCMとオフショアvenue、オンチェーンvenueの間の**建玉・ファンディング・ベーシス**
+- 解釈・承認の更新前後に起きる**銘柄・ペア・流動性の再配置**
+
+米国では、法域の境界がニュース一つで全て決まるわけではない。だからこそ、イベントを「法案」「解釈」「商品承認」に分解し、市場のどの住所が変わったのかを追う必要がある。

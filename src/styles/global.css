@@ -123,6 +123,12 @@ pre { overflow-x: auto; padding: 1.2rem; border: 1px solid var(--line); backgrou
 .article-header h1, .project-header h1 { margin-bottom: 1rem; font-size: clamp(2.35rem, 4vw, 3.75rem); }
 .article-dek { color: var(--muted); font-family: var(--serif); font-size: 1.35rem; line-height: 1.45; }
 .article-header .article-meta { display: flex; flex-direction: row; gap: 1rem; }
+.article-toc { margin-top: 2rem; padding: 1.15rem 1.35rem; border-top: 2px solid var(--accent); border-bottom: 1px solid var(--line); background: var(--soft-accent); font-family: var(--sans); }
+.article-toc > p, .series-navigation > p { margin: 0 0 0.65rem; color: var(--accent-dark); font-size: 0.72rem; font-weight: 760; letter-spacing: 0.12em; text-transform: uppercase; }
+.article-toc ol { display: grid; gap: 0.35rem; margin: 0; padding-left: 1.25rem; }
+.article-toc li { padding-left: 0.1rem; font-size: 0.9rem; }
+.article-toc .toc-subitem { margin-left: 1rem; font-size: 0.82rem; }
+.article-toc a { text-decoration-color: #8ca8a4; }
 .prose { padding-top: 2.5rem; font-family: var(--serif); font-size: 1.08rem; }
 .prose h2, .prose h3 { margin-top: 2.3rem; font-family: var(--sans); letter-spacing: -0.02em; }
 .prose h2 { font-size: 1.8rem; }
@@ -132,6 +138,14 @@ pre { overflow-x: auto; padding: 1.2rem; border: 1px solid var(--line); backgrou
 .prose table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.86rem; }
 .prose th, .prose td { min-width: 130px; padding: 0.75rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
 .prose th { background: var(--soft-accent); color: var(--accent-dark); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.research-figure { margin: 2.25rem 0; border: 1px solid var(--line); background: var(--panel); }
+.research-figure img { display: block; width: 100%; height: auto; }
+.research-figure figcaption { display: flex; gap: 0.75rem; padding: 0.75rem 0.95rem; border-top: 1px solid var(--line); color: var(--muted); font-family: var(--sans); font-size: 0.78rem; line-height: 1.5; }
+.research-figure figcaption span { color: var(--accent); font-size: 0.7rem; font-weight: 760; letter-spacing: 0.08em; text-transform: uppercase; }
+.series-navigation { margin: 2.2rem 0; padding: 1rem 1.15rem; border: 1px solid var(--line); background: #fcfcfa; font-family: var(--sans); }
+.series-navigation ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0; padding: 0; list-style: none; }
+.series-navigation a, .series-navigation span { font-size: 0.83rem; font-weight: 700; text-decoration: none; }
+.series-navigation span[aria-current="page"] { color: var(--accent); text-decoration: underline; text-underline-offset: 0.25em; }
 .metric-callout { display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1.5rem; margin: 2rem 0; padding: 1rem 1.2rem; border-top: 2px solid var(--accent); border-bottom: 1px solid var(--line); background: var(--soft-accent); font-family: var(--sans); }
 .metric-callout span, .metric-callout small { color: var(--muted); font-size: 0.75rem; }
 .metric-callout strong { color: var(--accent-dark); font-family: var(--serif); font-size: 1.25rem; font-weight: 500; }

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">European Union regulatory scope boundary</title>
+  <desc id="desc">A diagram showing a MiCA crypto-asset services lane and a MiFID II financial instruments lane with a classification assessment between them.</desc>
+  <style>
+    .bg{fill:#fbfbf8}.panel{fill:#fff;stroke:#d9dedb;stroke-width:2}.soft{fill:#e7f0ef}.ink{fill:#172026}.muted{fill:#5c676f}.accent{fill:#0f5966}.headline{font:500 34px Georgia,serif}.label{font:700 24px system-ui,sans-serif}.body{font:400 18px system-ui,sans-serif}.small{font:700 15px system-ui,sans-serif;letter-spacing:1.2px}
+  </style>
+  <rect class="bg" width="1200" height="430"/>
+  <text x="60" y="65" class="headline ink">EU: classification determines the lane</text>
+  <text x="60" y="98" class="body muted">A crypto label alone does not determine whether MiCA is the relevant framework.</text>
+  <g transform="translate(60 155)">
+    <rect class="panel" width="375" height="190"/><text x="28" y="45" class="small accent">MICA LANE</text><text x="28" y="89" class="label ink">Crypto-asset services</text><text x="28" y="127" class="body muted">CASP authorisation</text><text x="28" y="156" class="body muted">conduct and safeguarding</text>
+  </g>
+  <g transform="translate(470 155)">
+    <rect class="soft" width="260" height="190"/><text x="27" y="46" class="small accent">ASSESSMENT</text><text x="27" y="89" class="label ink">Financial</text><text x="27" y="120" class="label ink">instrument?</text><text x="27" y="159" class="body muted">rights, payoff,</text><text x="27" y="184" class="body muted">underlying, settlement</text>
+  </g>
+  <g transform="translate(765 155)">
+    <rect class="panel" width="375" height="190"/><text x="28" y="45" class="small accent">MIFID II LANE</text><text x="28" y="89" class="label ink">Financial instruments</text><text x="28" y="127" class="body muted">derivative classification</text><text x="28" y="156" class="body muted">product-intervention analysis</text>
+  </g>
+  <path d="M435 250H452" stroke="#0f5966" stroke-width="3"/><path d="M452 250l-11-7v14z" class="accent"/>
+  <path d="M730 250H747" stroke="#0f5966" stroke-width="3"/><path d="M747 250l-11-7v14z" class="accent"/>
+  <text x="60" y="395" class="body muted">Perpetual futures are a practical example of why the boundary needs an instrument-by-instrument analysis.</text>
+</svg>

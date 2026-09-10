@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">How regulation reaches market structure</title>
+  <desc id="desc">A flow from a rulebook through legal entity and product access to observable market structure.</desc>
+  <style>
+    .bg{fill:#fbfbf8}.card{fill:#fff;stroke:#d9dedb;stroke-width:2}.ink{fill:#172026}.muted{fill:#5c676f}.accent{fill:#0f5966}.headline{font:500 34px Georgia,serif}.label{font:700 22px system-ui,sans-serif}.body{font:400 17px system-ui,sans-serif}.small{font:700 14px system-ui,sans-serif;letter-spacing:1.2px}
+  </style>
+  <rect class="bg" width="1200" height="500"/>
+  <text x="60" y="66" class="headline ink">Regulation first changes the market address</text>
+  <text x="60" y="101" class="body muted">Price is often the last variable in the chain, not the first.</text>
+  <g transform="translate(60 165)">
+    <rect class="card" width="235" height="190"/><text x="24" y="43" class="small accent">01</text><text x="24" y="84" class="label ink">Rulebook</text><text x="24" y="122" class="body muted">Scope</text><text x="24" y="150" class="body muted">customer protection</text>
+  </g>
+  <path d="M310 260H365" stroke="#0f5966" stroke-width="3"/><path d="M365 260l-12-8v16z" class="accent"/>
+  <g transform="translate(380 165)">
+    <rect class="card" width="235" height="190"/><text x="24" y="43" class="small accent">02</text><text x="24" y="84" class="label ink">Legal entity</text><text x="24" y="122" class="body muted">Licence</text><text x="24" y="150" class="body muted">jurisdiction</text>
+  </g>
+  <path d="M630 260H685" stroke="#0f5966" stroke-width="3"/><path d="M685 260l-12-8v16z" class="accent"/>
+  <g transform="translate(700 165)">
+    <rect class="card" width="235" height="190"/><text x="24" y="43" class="small accent">03</text><text x="24" y="84" class="label ink">Product access</text><text x="24" y="122" class="body muted">pairs &amp; leverage</text><text x="24" y="150" class="body muted">collateral &amp; reports</text>
+  </g>
+  <path d="M950 260H1005" stroke="#0f5966" stroke-width="3"/><path d="M1005 260l-12-8v16z" class="accent"/>
+  <g transform="translate(1020 165)">
+    <rect class="card" width="120" height="190"/><text x="20" y="43" class="small accent">04</text><text x="20" y="84" class="label ink">Market</text><text x="20" y="122" class="body muted">depth</text><text x="20" y="150" class="body muted">basis</text>
+  </g>
+  <text x="60" y="435" class="body muted">Measure venue, pair, legal entity and client segment before making a price-level inference.</text>
+</svg>

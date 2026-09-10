@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Japan effective date and tax timing</title>
+  <desc id="desc">A timeline showing law publication, an effective date set by cabinet order, and tax application on the following January first.</desc>
+  <style>
+    .bg{fill:#fbfbf8}.panel{fill:#fff;stroke:#d9dedb;stroke-width:2}.soft{fill:#e7f0ef}.ink{fill:#172026}.muted{fill:#5c676f}.accent{fill:#0f5966}.headline{font:500 34px Georgia,serif}.label{font:700 23px system-ui,sans-serif}.body{font:400 18px system-ui,sans-serif}.small{font:700 15px system-ui,sans-serif;letter-spacing:1.2px}
+  </style>
+  <rect class="bg" width="1200" height="430"/>
+  <text x="60" y="65" class="headline ink">Japan: the effective date anchors the calendar</text>
+  <text x="60" y="98" class="body muted">Publication is a milestone; the operational date is set separately.</text>
+  <path d="M160 255H1040" stroke="#c9d3d0" stroke-width="4"/>
+  <g transform="translate(80 155)">
+    <rect class="panel" width="270" height="150"/><text x="25" y="42" class="small accent">PUBLISHED</text><text x="25" y="84" class="label ink">Amended Act</text><text x="25" y="117" class="body muted">23 Jul 2026</text>
+  </g>
+  <g transform="translate(465 155)">
+    <rect class="soft" width="270" height="150"/><text x="25" y="42" class="small accent">TBD</text><text x="25" y="84" class="label ink">Effective date</text><text x="25" y="117" class="body muted">Cabinet Order</text>
+  </g>
+  <g transform="translate(850 155)">
+    <rect class="panel" width="270" height="150"/><text x="25" y="42" class="small accent">FOLLOWING YEAR</text><text x="25" y="84" class="label ink">Tax application</text><text x="25" y="117" class="body muted">1 January</text>
+  </g>
+  <circle cx="215" cy="255" r="10" class="accent"/><circle cx="600" cy="255" r="10" class="accent"/><circle cx="985" cy="255" r="10" class="accent"/>
+  <text x="60" y="395" class="body muted">Do not infer a fixed calendar year for tax treatment before the effective date is specified.</text>
+</svg>

@@ -8,15 +8,21 @@ interface Props {
   category: string;
   date: Date;
   tags: string[];
+  headings?: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
 }
 
-const { title, description, category, date, tags } = Astro.props;
+const { title, description, category, date, tags, headings = [] } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-GB', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
   timeZone: 'UTC',
 });
+const tableOfContents = headings.filter(({ depth }) => depth === 2 || depth === 3);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -34,6 +40,18 @@ const formattedDate = date.toLocaleDateString('en-GB', {
         {tags.map((tag) => <li>{tag}</li>)}
       </ul>
     </header>
+    {tableOfContents.length > 0 && (
+      <nav class="article-toc" aria-label="On this page">
+        <p>On this page</p>
+        <ol>
+          {tableOfContents.map((heading) => (
+            <li class:list={{ 'toc-subitem': heading.depth === 3 }}>
+              <a href={'#' + heading.slug}>{heading.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
     <div class="prose"><slot /></div>
   </article>
 </BaseLayout>

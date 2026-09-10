@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 550" role="img" aria-labelledby="title desc">
+  <title id="title">Selected regulatory timeline</title>
+  <desc id="desc">A timeline showing that European Union, United States, and Japanese regulatory milestones do not occur at the same time.</desc>
+  <style>
+    .bg{fill:#fbfbf8}.ink{fill:#172026}.muted{fill:#5c676f}.accent{fill:#0f5966}.line{stroke:#c9d3d0;stroke-width:2}.headline{font:500 34px Georgia,serif}.lane{font:700 18px system-ui,sans-serif;letter-spacing:1.5px}.date{font:700 15px system-ui,sans-serif}.body{font:400 16px system-ui,sans-serif}
+  </style>
+  <rect class="bg" width="1200" height="550"/>
+  <text x="60" y="65" class="headline ink">The clocks do not move together</text>
+  <text x="60" y="98" class="body muted">Selected milestones; not a legal-effective-date chart.</text>
+  <g class="line">
+    <path d="M180 180H1130"/><path d="M180 305H1130"/><path d="M180 430H1130"/>
+  </g>
+  <text x="60" y="186" class="lane ink">EU</text>
+  <text x="60" y="311" class="lane ink">US</text>
+  <text x="60" y="436" class="lane ink">JAPAN</text>
+  <g>
+    <circle cx="255" cy="180" r="10" class="accent"/><text x="222" y="148" class="date ink">2024.06</text><text x="202" y="215" class="body muted">ART / EMT rules</text>
+    <circle cx="425" cy="180" r="10" class="accent"/><text x="392" y="148" class="date ink">2024.12</text><text x="370" y="215" class="body muted">MiCA applies</text>
+    <circle cx="690" cy="180" r="10" class="accent"/><text x="652" y="148" class="date ink">2026.07</text><text x="615" y="215" class="body muted">CASP transition end*</text>
+  </g>
+  <g>
+    <circle cx="520" cy="305" r="10" class="accent"/><text x="486" y="273" class="date ink">2025.07</text><text x="450" y="340" class="body muted">GENIUS Act</text>
+    <circle cx="760" cy="305" r="10" class="accent"/><text x="725" y="273" class="date ink">2026.03</text><text x="680" y="340" class="body muted">SEC / CFTC interpretation</text>
+    <circle cx="900" cy="305" r="10" class="accent"/><text x="864" y="273" class="date ink">2026.05</text><text x="832" y="340" class="body muted">Perpetual policy</text>
+  </g>
+  <g>
+    <circle cx="610" cy="430" r="10" class="accent"/><text x="575" y="398" class="date ink">2025.12</text><text x="530" y="465" class="body muted">WG report</text>
+    <circle cx="750" cy="430" r="10" class="accent"/><text x="715" y="398" class="date ink">2026.03</text><text x="686" y="465" class="body muted">Tax statute</text>
+    <circle cx="900" cy="430" r="10" class="accent"/><text x="865" y="398" class="date ink">2026.07</text><text x="832" y="465" class="body muted">Amended Act published</text>
+    <circle cx="1080" cy="430" r="10" fill="#fff" stroke="#0f5966" stroke-width="3"/><text x="1012" y="398" class="date ink">TBD</text><text x="965" y="465" class="body muted">Effective date by order</text>
+  </g>
+  <text x="60" y="520" class="body muted">* Member States may shorten or opt out of the MiCA transitional regime.</text>
+</svg>

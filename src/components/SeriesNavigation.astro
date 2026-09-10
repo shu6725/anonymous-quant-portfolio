@@ -1,0 +1,30 @@
+---
+import { internalPath } from '../utils/paths';
+
+type CurrentPage = 'overview' | 'eu' | 'us' | 'japan';
+
+interface Props {
+  current: CurrentPage;
+}
+
+const { current } = Astro.props;
+const items: Array<{ id: CurrentPage; label: string; href: string }> = [
+  { id: 'overview', label: 'Overview', href: internalPath('research/crypto-regulation-series-1/') },
+  { id: 'eu', label: 'EU / MiCA', href: internalPath('research/crypto-regulation-eu/') },
+  { id: 'us', label: 'United States', href: internalPath('research/crypto-regulation-us/') },
+  { id: 'japan', label: 'Japan', href: internalPath('research/crypto-regulation-japan/') },
+];
+---
+
+<nav class="series-navigation" aria-label="Crypto regulation series">
+  <p>Crypto regulation series</p>
+  <ul>
+    {items.map((item) => (
+      <li>
+        {item.id === current
+          ? <span aria-current="page">{item.label}</span>
+          : <a href={item.href}>{item.label}</a>}
+      </li>
+    ))}
+  </ul>
+</nav>

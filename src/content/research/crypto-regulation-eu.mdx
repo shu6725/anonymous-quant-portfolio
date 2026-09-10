@@ -1,0 +1,79 @@
+---
+title: "EU / MiCA：市場への入口をどう揃えるのか"
+description: "MiCAのCASP規制、経過措置、MiFID IIとの境界を、取引所・デリバティブ・報告の実務から読む。"
+date: 2026-09-10
+category: "Crypto Regulation Series"
+tags:
+  - European Union
+  - MiCA
+  - MiFID II
+  - Market Structure
+draft: false
+---
+
+import ResearchFigure from '../../components/ResearchFigure.astro';
+import SeriesNavigation from '../../components/SeriesNavigation.astro';
+
+> **暗号資産規制シリーズ — EU / MiCA**  
+> ここでいう「EU対応」はブランド名ではなく、認可された法人、提供するサービス、顧客の所在、商品の分類を合わせて確認することを意味する。
+
+## 先に結論：MiCAは市場への入口を揃える制度
+
+MiCAを「暗号資産を規制する法律」と一言で呼ぶと、実務では情報が足りない。取引所やブローカーにとっての中心は、暗号資産サービス提供者（CASP）を認可と行為規制の単位に置いたことにある。ある商品が利用できるかを判断する際、見るべき単位はアプリやブランドではなく、どの法人がどのサービスを提供しているかである。
+
+<SeriesNavigation current="eu" />
+
+## MiCAの現在地：適用済みだが、移行には国差がある
+
+MiCAは原則として2024年12月30日から適用され、資産参照トークンと電子マネートークンに関する規定は2024年6月30日から適用された。[MiCA Article 149](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02023R1114-20240109)
+
+既存のサービス提供者には [Article 143](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02023R1114-20240109) の経過措置がある。原則は2026年7月1日または認可の可否が決まる日の早い方までだが、加盟国は経過措置を使わない、または短縮できる。したがって、全EUで同じ日に同じ商品が同じように変わる、という読み方は危険である。
+
+実務上の確認順序は次の通りになる。
+
+1. 顧客を受け入れる**法人**はどこか。
+2. その法人はどの**CASPサービス**を認可されているか。
+3. 提供先の国に対する**通知・パスポート**はどうなっているか。
+4. 移行措置に依存しているなら、当該国の**終了日**はいつか。
+
+<ResearchFigure
+  src="images/research/eu-scope-boundary.svg"
+  alt="EUでは暗号資産サービスはMiCAのレーンに入り、金融商品該当性の評価を経た商品はMiFID IIのレーンに入ることを示す図"
+  caption="EU regulatory scope boundary. 商品にcryptoという名前が付いていることは、MiCAの対象であることを自動的には意味しない。"
+/>
+
+## MiCAの外側：金融商品に該当するかという問い
+
+MiCA Article 2 は、金融商品に該当する暗号資産を適用範囲から除外する。ここが、MiCAを包括規制と見るだけでは不十分な理由である。[ESMAの単一ルールブック解説](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-2-scope)
+
+ESMAの金融商品該当性ガイドラインは、暗号資産を原資産とするデリバティブと、暗号資産自体がデリバティブに該当する場合を区別する。特に perpetual futures について、満期や決済日がないという商品特性があっても、原資産の価格変動から価値が導かれる契約として、MiFID II Annex I Section C の基準に照らした評価を求めている。[ESMAガイドライン、Guideline 5](https://www.esma.europa.eu/sites/default/files/2024-12/ESMA75453128700-1323_Final_Report_Guidelines_on_the_conditions_and_criteria_for_the_qualification_of_CAs_as_FIs.pdf)
+
+この分析は商品名では終わらない。契約上の権利、原資産、決済方法、顧客への提供方法を見て初めて、規制上のレーンが見える。
+
+## Perpetuals：レバレッジ商品は別の問題を連れてくる
+
+ESMAは2026年2月、perpetual futures / perpetual contracts として提供されるレバレッジ型デリバティブについて、各国当局のCFD商品介入措置が及びうることを注意喚起した。[ESMAの公開声明](https://www.esma.europa.eu/press-news/esma-news/esma-reminds-firms-their-obligations-under-cfd-product-intervention-measures)
+
+ここから導けるのは「EUでperpは一律に使えない」ではない。正しい問いは、**どの契約が、どの国で、どの顧客に、どの規制上の性質で提供されるか**である。リテール、プロ顧客、法人顧客の区分も、実装上の差を生む。
+
+| 見る層 | 実務上の質問 | 市場で先に変わりやすいもの |
+| --- | --- | --- |
+| 法人 | 認可を持つ提供主体はどこか | 口座移管、オンボーディング |
+| 商品 | MiCAか金融商品規制か | 商品ラインアップ、レバレッジ |
+| 顧客 | リテールかプロか | 利用可能な契約、保護措置 |
+| 建て通貨・報告 | どのペア・報告枠組みか | ペア構成、運用コスト |
+
+## 報告は流動性の代わりではないが、摩擦を変える
+
+DAC8は2026年1月1日から適用され、報告対象の暗号資産サービス提供者に、EU居住者の取引に関する情報収集と年次報告の枠組みを導入した。[欧州委員会のDAC8解説](https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/directive-administrative-cooperation-dac/dac8_en)
+
+これは特定の取引を直接禁止する制度ではない。ただし、本人確認、取引履歴、税務上の分類を運用に組み込む必要があるため、アクセスの摩擦と法人・プロダクト設計の差別化には効く。データを見る際には、規制日当日の価格だけでなく、建て通貨別の出来高、取引所別の板、顧客区分ごとの商品提供を追う方が筋がよい。
+
+## トレーダー／リサーチャーのチェックリスト
+
+- 取引所名ではなく、契約相手方の**法人名と認可国**を記録する。
+- perpは、原資産・決済・レバレッジ・顧客区分を分けて分類する。
+- 「EUの出来高」を一つの数値と見なさず、**venue・ペア・法定通貨／ステーブルコイン建て**で分解する。
+- 経過措置の終了をイベント日とする場合は、当該加盟国の制度も一次資料で確認する。
+
+EUの重要性は、法域を越えたサービス提供を可能にする仕組みと、その入口を一度に変える力にある。次に問うべきは、入口の外側に残るデリバティブ取引が、どこでどのような規制の下に置かれるかである。

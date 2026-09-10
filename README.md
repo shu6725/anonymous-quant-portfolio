@@ -24,9 +24,9 @@ The static deployment build is written to `dist/`.
 
 - Edit the identity, email, summary, expertise, experience and availability data in `src/data/profile.ts`.
 - Edit the initial project scaffolds in `src/data/projects.ts`. A project page is generated for every entry.
-- Add articles in `src/content/research/` as `.md` files. Drafts (`draft: true`) are excluded from public listings and routes.
+- Add articles in `src/content/research/` as `.md` or `.mdx` files. Drafts (`draft: true`) are excluded from public listings and routes.
 - Add reusable Astro components in `src/components/`; the project-page scaffold is designed to receive a small client-side interactive component when a concrete research demo is selected.
-- Put images in `public/images/` and videos in `public/videos/`. Reference them from Markdown with paths such as `/images/example.svg` or use a native video element with `preload="metadata"`.
+- Put images in `public/images/` and videos in `public/videos/`. Markdown images such as `![Description](/images/example.svg)` are base-path aware for GitHub Pages. Use MDX when an article needs reusable Astro components such as figures or an interactive widget.
 
 Article frontmatter:
 
@@ -44,7 +44,7 @@ draft: false
 ---
 ```
 
-KaTeX is configured globally. Use `$inline$` and `$$display$$` notation. Code fences receive Astro’s built-in syntax highlighting. The initial shell keeps dependencies minimal; add MDX only when the official integration supports the Astro version in use and an article genuinely needs a component.
+KaTeX is configured globally. Use `$inline$` and `$$display$$` notation. Code fences receive Astro’s built-in syntax highlighting. MDX is enabled for figures and future interactive research components. The regulation-series articles provide working examples with `ResearchFigure.astro`.
 
 ## GitHub Pages deployment
 

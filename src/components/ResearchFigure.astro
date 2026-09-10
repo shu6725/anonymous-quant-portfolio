@@ -1,0 +1,16 @@
+---
+import { internalPath } from '../utils/paths';
+
+interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+const { src, alt, caption } = Astro.props;
+---
+
+<figure class="research-figure">
+  <img src={internalPath(src)} alt={alt} loading="lazy" decoding="async" />
+  <figcaption><span>Figure</span>{caption}</figcaption>
+</figure>

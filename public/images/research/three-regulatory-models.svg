@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img" aria-labelledby="title desc">
+  <title id="title">Three regulatory models for crypto-asset markets</title>
+  <desc id="desc">A comparison of the EU, United States and Japan regulatory starting points.</desc>
+  <style>
+    .bg{fill:#fbfbf8}.card{fill:#fff;stroke:#d9dedb;stroke-width:2}.bar{fill:#0f5966}.ink{fill:#172026}.muted{fill:#5c676f}.small{font:600 18px system-ui,sans-serif;letter-spacing:1.6px}.label{font:700 26px system-ui,sans-serif}.body{font:400 20px system-ui,sans-serif}.headline{font:500 36px Georgia,serif}
+  </style>
+  <rect class="bg" width="1200" height="540"/>
+  <text x="60" y="68" class="headline ink">Three regulatory starting points</text>
+  <text x="60" y="103" class="body muted">The first control point differs before the same crypto asset reaches a trading screen.</text>
+  <g transform="translate(60 150)">
+    <rect class="card" width="340" height="325"/>
+    <rect class="bar" width="340" height="10"/>
+    <text x="30" y="58" class="small muted">EUROPEAN UNION</text>
+    <text x="30" y="105" class="label ink">Market entry</text>
+    <text x="30" y="153" class="body muted">Authorisation</text>
+    <path d="M30 177H285" stroke="#0f5966" stroke-width="2"/>
+    <text x="30" y="214" class="body muted">Passporting</text>
+    <path d="M30 238H285" stroke="#0f5966" stroke-width="2"/>
+    <text x="30" y="275" class="body muted">Reporting &amp; conduct</text>
+  </g>
+  <g transform="translate(430 150)">
+    <rect class="card" width="340" height="325"/>
+    <rect class="bar" width="340" height="10"/>
+    <text x="30" y="58" class="small muted">UNITED STATES</text>
+    <text x="30" y="105" class="label ink">Legal boundary</text>
+    <text x="30" y="153" class="body muted">Existing statutes</text>
+    <path d="M30 177H285" stroke="#0f5966" stroke-width="2"/>
+    <text x="30" y="214" class="body muted">Agency interpretation</text>
+    <path d="M30 238H285" stroke="#0f5966" stroke-width="2"/>
+    <text x="30" y="275" class="body muted">Product review</text>
+  </g>
+  <g transform="translate(800 150)">
+    <rect class="card" width="340" height="325"/>
+    <rect class="bar" width="340" height="10"/>
+    <text x="30" y="58" class="small muted">JAPAN</text>
+    <text x="30" y="105" class="label ink">Market position</text>
+    <text x="30" y="153" class="body muted">Legislative framework</text>
+    <path d="M30 177H285" stroke="#0f5966" stroke-width="2"/>
+    <text x="30" y="214" class="body muted">Delegated rules</text>
+    <path d="M30 238H285" stroke="#0f5966" stroke-width="2"/>
+    <text x="30" y="275" class="body muted">Operational rollout</text>
+  </g>
+</svg>
