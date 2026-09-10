@@ -50,6 +50,8 @@ KaTeX is configured globally. Use `$inline$` and `$$display$$` notation. Code fe
 
 The included GitHub Actions workflow builds and publishes the static `dist/` directory on every push to `main`. No deployment secret is required.
 
+GitHub Pages from a private repository requires a GitHub plan that supports it. On GitHub Free, keep this source repository private and deploy a reviewed static build to a separate public Pages repository, or use another hosting provider with access control.
+
 1. Create a GitHub repository with a neutral name, for example `anonymous-quant-portfolio`.
 2. In **Settings → Pages**, select **GitHub Actions** as the publishing source.
 3. Push the `main` branch. The workflow publishes the site at `https://<account>.github.io/<repository>/`.
