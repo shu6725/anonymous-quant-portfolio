@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" role="img" aria-labelledby="title desc">
+  <title id="title">DORA operational resilience cycle</title>
+  <desc id="desc">A cycle showing governance, ICT risk management, incident response, resilience testing, and third-party oversight as connected operating disciplines.</desc>
+  <style>
+    .bg{fill:#fbfbf8}.card{fill:#fff;stroke:#d9dedb;stroke-width:2}.ink{fill:#172026}.muted{fill:#5c676f}.accent{fill:#0f5966}.soft{fill:#e7f0ef}.headline{font:500 34px Georgia,serif}.label{font:700 22px system-ui,sans-serif}.body{font:400 17px system-ui,sans-serif}.small{font:700 14px system-ui,sans-serif;letter-spacing:1.2px}
+  </style>
+  <rect class="bg" width="1200" height="510"/>
+  <text x="60" y="65" class="headline ink">DORA is an operating cycle, not a policy document</text>
+  <text x="60" y="99" class="body muted">Resilience is built through accountable governance, evidence and repeatable operational practice.</text>
+  <g transform="translate(60 165)">
+    <rect class="card" width="205" height="185"/><text x="22" y="41" class="small accent">01</text><text x="22" y="81" class="label ink">Governance</text><text x="22" y="117" class="body muted">board accountability</text><text x="22" y="145" class="body muted">roles and decisions</text>
+  </g>
+  <g transform="translate(290 165)">
+    <rect class="soft" width="205" height="185"/><text x="22" y="41" class="small accent">02</text><text x="22" y="81" class="label ink">ICT risk</text><text x="22" y="117" class="body muted">assets and services</text><text x="22" y="145" class="body muted">protect and detect</text>
+  </g>
+  <g transform="translate(520 165)">
+    <rect class="card" width="205" height="185"/><text x="22" y="41" class="small accent">03</text><text x="22" y="81" class="label ink">Incidents</text><text x="22" y="117" class="body muted">classify and report</text><text x="22" y="145" class="body muted">respond and recover</text>
+  </g>
+  <g transform="translate(750 165)">
+    <rect class="soft" width="205" height="185"/><text x="22" y="41" class="small accent">04</text><text x="22" y="81" class="label ink">Testing</text><text x="22" y="117" class="body muted">prove resilience</text><text x="22" y="145" class="body muted">remediate findings</text>
+  </g>
+  <g transform="translate(980 165)">
+    <rect class="card" width="160" height="185"/><text x="20" y="41" class="small accent">05</text><text x="20" y="81" class="label ink">Third</text><text x="20" y="108" class="label ink">parties</text><text x="20" y="145" class="body muted">contracts</text><text x="20" y="170" class="body muted">and exit</text>
+  </g>
+  <path d="M265 258H281M495 258H511M725 258H741M955 258H971" stroke="#0f5966" stroke-width="3"/>
+  <path d="M281 258l-10-7v14zM511 258l-10-7v14zM741 258l-10-7v14zM971 258l-10-7v14z" class="accent"/>
+  <path d="M1060 375C930 460 300 460 170 375" fill="none" stroke="#0f5966" stroke-width="3"/>
+  <path d="M170 375l16 0-7 12z" class="accent"/>
+  <text x="360" y="460" class="body muted">Evidence from incidents, testing and suppliers feeds back into governance and risk decisions.</text>
+</svg>

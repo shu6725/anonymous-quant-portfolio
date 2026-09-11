@@ -1,0 +1,104 @@
+---
+title: "DORA for crypto firms: purpose, requirements and practical response"
+description: "A market-operator's guide to the EU Digital Operational Resilience Act: who it reaches, what it requires, and how to turn it into an operating programme."
+locale: en
+route: dora-operational-resilience
+date: 2026-09-11
+category: "Regulation / Operational Resilience"
+tags:
+  - European Union
+  - DORA
+  - ICT Risk
+  - Crypto Assets
+draft: false
+---
+
+import ResearchFigure from '../../../components/ResearchFigure.astro';
+
+> **Scope note**  
+> This is a market-structure and operational reading of the Digital Operational Resilience Act (DORA), not legal advice. Applicability depends on the regulated entity, services, Member State implementation choices where relevant, and the final supervisory interpretation.
+
+## What DORA is trying to solve
+
+DORA is the EU’s directly applicable operational-resilience regulation for the financial sector: Regulation (EU) 2022/2554. It applied from 17 January 2025. Its goal is not simply better cyber security. It is to ensure that a financial entity can continue to provide financial services through an ICT disruption, including where its capabilities depend on external ICT providers. [DORA Article 3 and Article 64](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554)
+
+That distinction matters. A firm can have a security policy and still be operationally fragile if it cannot detect a material failure, make a fast decision, communicate, restore critical services, reconcile state, and learn from the incident. DORA turns those capabilities into a harmonised financial-sector control framework.
+
+The regulation responds to a structural fact: financial services increasingly depend on common cloud, data, communications, identity, market-data and software providers. A disruption at one provider can become a cross-firm or cross-market event. ESMA describes DORA’s aim as strengthening ICT security and ensuring that Europe’s financial sector remains resilient in a severe operational digital disruption. [ESMA DORA overview](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora)
+
+## Who is in scope
+
+DORA Article 2 covers a broad list of financial entities, including credit institutions, payment institutions, electronic-money institutions, investment firms, trading venues, insurers and other regulated financial-sector entities. For crypto markets, the important line is that it covers **crypto-asset service providers authorised under MiCA and issuers of asset-referenced tokens**. [DORA Article 2](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554)
+
+The correct unit of analysis is the regulated legal entity, not a global brand, protocol name or software repository. A group may have an EU-authorised CASP, an offshore trading entity, a technology affiliate and several vendors. The EU financial entity’s DORA obligations do not disappear because an important service is delivered by a non-EU third party. ESMA’s Q&A is explicit that the EU entity remains responsible for ensuring that a third-party relationship does not prevent DORA compliance. [ESMA Q&A 2107](https://www.esma.europa.eu/publications-data/questions-answers/2107)
+
+Proportionality is part of the regulation. Article 4 requires implementation to take account of size, risk profile, and the nature, scale and complexity of services and operations. Proportionality changes how controls are designed and evidenced; it is not a reason to ignore the control domains. [DORA Article 4](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554)
+
+## The requirements: five connected disciplines
+
+<ResearchFigure
+  src="images/research/dora-resilience-cycle.svg"
+  alt="A diagram showing DORA as a cycle of governance, ICT risk management, incidents, testing and third-party oversight"
+  caption="DORA operational resilience cycle. The programme should create evidence that feeds back into decisions, rather than a set of disconnected policies."
+/>
+
+### 1. Governance and ICT-risk management
+
+Management bears responsibility for the ICT-risk management framework under Article 5. The framework then needs to cover identification, protection and prevention, detection, response and recovery, communication, learning and evolving capabilities. The detailed technical standards specify ICT risk-management tools, methods, processes and policies. [DORA Articles 5–16](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554) [Commission Delegated Regulation (EU) 2024/1774](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1774)
+
+In practical terms, a policy document alone is not the control. The firm needs an accurate view of critical services, supporting assets, dependencies, owners, recovery expectations and the decisions that can be made during a disruption.
+
+### 2. Incident management, classification and reporting
+
+DORA requires an ICT-related incident management process, classification of incidents and reporting of major ICT-related incidents to competent authorities. It also provides for voluntary notification of significant cyber threats. The detailed classification criteria, materiality thresholds and reporting content are set out in the relevant technical standards and implementing regulation. [DORA Articles 17–23](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554) [ESMA policy-requirements register](https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora)
+
+The hard part is not drafting a report template. It is designing a decision process that can determine what happened, assess impact, preserve evidence, activate the right owners and meet the relevant reporting process without losing control of recovery.
+
+### 3. Digital operational-resilience testing
+
+Financial entities must establish and maintain a sound and comprehensive testing programme that is proportionate to the nature, scale, complexity and risk profile of the business. The framework includes a range of tests and, for entities identified by competent authorities, threat-led penetration testing. [DORA Articles 24–27](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554)
+
+Testing is valuable only if results change the service, architecture, runbook or risk decision. A test that finds a recovery failure but never updates the recovery plan is evidence of a gap, not resilience.
+
+### 4. ICT third-party risk
+
+Third-party risk management is central to DORA. Financial entities need a strategy and policy for ICT third-party risk, a register of information concerning contractual arrangements, assessment of concentration and dependency risk, and contractual provisions for ICT services supporting critical or important functions. [DORA Articles 28–30](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554)
+
+The contractual question is broader than a vendor security questionnaire. Critical contracts need operationally usable rights and obligations: service descriptions, locations, security expectations, access and audit, incident assistance, data handling, subcontracting, termination and exit. The firm needs to know what it can actually do when a critical provider fails.
+
+DORA also establishes EU-level oversight of ICT third-party providers designated as critical. That oversight complements, rather than replaces, the financial entity’s own responsibility for ICT risk. [ESMA DORA Oversight](https://www.esma.europa.eu/dora-oversight)
+
+### 5. Information sharing
+
+DORA permits arrangements for financial entities to exchange cyber-threat information and intelligence under conditions set by the regulation. The purpose is to improve collective preparedness without turning informal exchanges into a substitute for incident management or reporting. [DORA Article 45](https://eur-lex.europa.eu/eli/reg/2022/2554/oj?uri=CELEX%3A32022R2554)
+
+## Practical response: build an operating programme, not a compliance binder
+
+For a CASP, an exchange operator or a financial technology provider supporting an EU financial entity, a sensible response sequence is:
+
+| Workstream | Deliverable that should exist | Practical test |
+| --- | --- | --- |
+| Scope and ownership | Legal-entity map, service map, accountable management owners | Can the firm identify which EU entity is responsible for each critical service? |
+| Critical-service inventory | Business service, systems, data, dependencies, recovery objectives | Can an incident commander see the full dependency chain? |
+| Incident operating model | Severity taxonomy, escalation matrix, evidence and reporting workflow | Can a realistic outage be classified and escalated without improvising roles? |
+| Resilience testing | Risk-based test calendar, results, remediation owners and due dates | Has a failed recovery test changed the design or runbook? |
+| Supplier governance | Register of information, criticality assessment, contract-gap register, exit plan | Can the firm continue or exit if a cloud, custody, data or identity provider fails? |
+| Management reporting | Open risks, test outcomes, incidents, supplier concentration and remediation | Does management receive evidence suitable for decisions, not just policy attestations? |
+
+For a crypto-market operator, the service map is usually more informative than an organisation chart. It should trace the path from customer access to the service that matters: identity and access control, wallet or key-management controls, custody workflow, market-data feed, order gateway, matching or execution dependency, risk checks, ledger and reconciliation, surveillance, incident communications and backup/restore paths.
+
+The mapping must also capture links to vendors and subcontractors. A market-data outage, a cloud-region event, a custody-signing failure or a broken identity provider can each have a different impact profile. Grouping them all under “technology risk” is too coarse to support an incident decision or an exit plan.
+
+## Common implementation errors
+
+1. **Treating DORA as an information-security certification.** The target is continued financial-service delivery, including response and recovery.
+2. **Using a group diagram instead of a legal-entity and service-dependency map.** Scope and accountability attach to the regulated entity.
+3. **Buying a register-of-information tool before determining criticality and contracts.** Inventory quality matters more than the form.
+4. **Testing only the technical component.** A resilient service also needs decision rights, communications, reconciliation and customer-impact management.
+5. **Assuming a large vendor’s DORA designation solves the customer’s duty.** It does not replace the financial entity’s own third-party-risk responsibility.
+
+## Conclusion
+
+DORA’s practical message is simple: resilience must be demonstrable at the moment a financial service is under stress. For a MiCA-authorised CASP, the question is not whether it has written an ICT policy. It is whether the responsible entity can identify its critical services and dependencies, contain and report a major incident, recover safely, and remain in control when a key provider is unavailable.
+
+The useful output is therefore not one large programme document. It is a living operating system of maps, ownership, tests, contractual rights, incident evidence and management decisions.
