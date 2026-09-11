@@ -24,7 +24,7 @@ The static deployment build is written to `dist/`.
 
 - Edit the identity, email, summary, expertise, experience and availability data in `src/data/profile.ts`.
 - Edit the initial project scaffolds in `src/data/projects.ts`. A project page is generated for every entry.
-- Add articles in `src/content/research/` as `.md` or `.mdx` files. Drafts (`draft: true`) are excluded from public listings and routes.
+- Add articles in `src/content/research/` as `.md` or `.mdx` files. Every public article has an `en` and a `ja` entry with the same `route` value. Drafts (`draft: true`) are excluded from public listings and routes.
 - Add reusable Astro components in `src/components/`; the project-page scaffold is designed to receive a small client-side interactive component when a concrete research demo is selected.
 - Put images in `public/images/` and videos in `public/videos/`. Markdown images such as `![Description](/images/example.svg)` are base-path aware for GitHub Pages. Use MDX when an article needs reusable Astro components such as figures or an interactive widget.
 
@@ -34,6 +34,8 @@ Article frontmatter:
 ---
 title: "Understanding Inventory Risk in Market Making"
 description: "A practical introduction to inventory risk."
+locale: en
+route: inventory-risk
 date: 2026-09-09
 category: "Market Microstructure"
 tags:
@@ -45,6 +47,14 @@ draft: false
 ```
 
 KaTeX is configured globally. Use `$inline$` and `$$display$$` notation. Code fences receive Astro’s built-in syntax highlighting. MDX is enabled for figures and future interactive research components. The regulation-series articles provide working examples with `ResearchFigure.astro`.
+
+## Languages
+
+English is available at the root URL. Japanese lives under `/jp/`. The `EN / JP` control in the header preserves the matching page path, including article and project routes.
+
+- Shared UI text and locale-aware links are in `src/i18n.ts`.
+- Japanese profile and project copy is alongside the English data in `src/data/profile.ts` and `src/data/projects.ts`.
+- Research translations live in language-specific content files and share the same `route` frontmatter value.
 
 ## GitHub Pages deployment
 

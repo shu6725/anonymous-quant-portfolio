@@ -1,6 +1,8 @@
 ---
 title: "Understanding Inventory Risk in Market Making"
 description: "A short placeholder on the role of inventory in a quoting problem."
+locale: en
+route: inventory-risk
 date: 2026-09-09
 category: "Market Microstructure"
 tags:

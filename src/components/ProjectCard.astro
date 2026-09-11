@@ -1,20 +1,24 @@
 ---
 import type { Project } from '../data/projects';
-import { internalPath } from '../utils/paths';
+import type { Locale } from '../i18n';
+import { localizedPath, ui } from '../i18n';
 
 interface Props {
   project: Project;
+  locale: Locale;
 }
 
-const { project } = Astro.props;
+const { project, locale } = Astro.props;
+const copy = ui[locale];
+const href = localizedPath(locale, 'projects/' + project.slug + '/');
 ---
 
 <article class="project-card">
   <p class="eyebrow">{project.category}</p>
-  <h3><a href={internalPath(`projects/${project.slug}/`)}>{project.title}</a></h3>
+  <h3><a href={href}>{project.title}</a></h3>
   <p>{project.summary}</p>
-  <ul class="tag-list" aria-label={`${project.title} topics`}>
+  <ul class="tag-list" aria-label={copy.projectTopics}>
     {project.topics.slice(0, 3).map((topic) => <li>{topic}</li>)}
   </ul>
-  <a class="text-link" href={internalPath(`projects/${project.slug}/`)}>View project <span aria-hidden="true">→</span></a>
+  <a class="text-link" href={href}>{copy.viewProject} <span aria-hidden="true">→</span></a>
 </article>

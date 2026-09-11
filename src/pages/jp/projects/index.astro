@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import { projectsJa } from '../../../data/projects';
+
+export const prerender = true;
+---
+
+<BaseLayout title="プロジェクト" description="独立した市場リサーチ・可視化プロジェクトの基盤。" locale="ja" pagePath="projects/">
+  <section class="page-intro shell">
+    <p class="eyebrow">プロジェクト</p>
+    <h1>リサーチツールとインタラクティブなデモ。</h1>
+    <p class="lead">初期のプロジェクトページは、シミュレーション、可視化、再現可能なノートを置くための、慎重で公開に適した基盤です。機密性のある手法、データ、パフォーマンスの主張は意図的に含めていません。</p>
+  </section>
+  <section class="shell section" aria-label="プロジェクト一覧">
+    <div class="project-grid projects-full">
+      {projectsJa.map((project) => <ProjectCard project={project} locale="ja" />)}
+    </div>
+  </section>
+</BaseLayout>

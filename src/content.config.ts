@@ -5,10 +5,13 @@ const research = defineCollection({
   loader: glob({
     base: './src/content/research',
     pattern: '**/*.{md,mdx}',
+    generateId: ({ entry }) => entry.replace(/\.(md|mdx)$/, ''),
   }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    locale: z.enum(['en', 'ja']),
+    route: z.string(),
     date: z.coerce.date(),
     category: z.string(),
     tags: z.array(z.string()),

@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+
+export const prerender = true;
+
+const articles = (await getCollection('research', ({ data }) => !data.draft && data.locale === 'ja'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="リサーチ" description="マーケット・マイクロストラクチャー、トレーディング、定量リサーチに関する技術ノート。" locale="ja" pagePath="research/">
+  <section class="page-intro shell">
+    <p class="eyebrow">リサーチ</p>
+    <h1>独立したリサーチノート。</h1>
+    <p class="lead">市場の直感、モデル、実装、解釈をつなぐ技術的なノートです。公開済みの分析と作業中のテーマを区別して掲載しています。</p>
+  </section>
+  <section class="shell section research-index" aria-label="リサーチ記事">
+    <div class="article-list">
+      {articles.map((article) => <ArticleCard article={article} locale="ja" />)}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { internalPath } from '../utils/paths';
+import type { Locale } from '../i18n';
+import { localizedPath, ui } from '../i18n';
 
 interface Props {
   title: string;
@@ -8,6 +9,8 @@ interface Props {
   category: string;
   date: Date;
   tags: string[];
+  locale: Locale;
+  route: string;
   headings?: Array<{
     depth: number;
     slug: string;
@@ -15,8 +18,9 @@ interface Props {
   }>;
 }
 
-const { title, description, category, date, tags, headings = [] } = Astro.props;
-const formattedDate = date.toLocaleDateString('en-GB', {
+const { title, description, category, date, tags, locale, route, headings = [] } = Astro.props;
+const copy = ui[locale];
+const formattedDate = date.toLocaleDateString(locale === 'ja' ? 'ja-JP' : 'en-GB', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -25,24 +29,24 @@ const formattedDate = date.toLocaleDateString('en-GB', {
 const tableOfContents = headings.filter(({ depth }) => depth === 2 || depth === 3);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} locale={locale} pagePath={'research/' + route + '/'}>
   <article class="article-shell shell reading-width">
-    <a class="back-link" href={internalPath('research/')}>← All research</a>
+    <a class="back-link" href={localizedPath(locale, 'research/')}>← {copy.allResearch}</a>
     <header class="article-header">
       <p class="eyebrow">{category}</p>
       <h1>{title}</h1>
       <p class="article-dek">{description}</p>
       <div class="article-meta">
         <time datetime={date.toISOString()}>{formattedDate}</time>
-        <span>Independent research note</span>
+        <span>{copy.independentResearch}</span>
       </div>
-      <ul class="tag-list" aria-label="Article tags">
+      <ul class="tag-list" aria-label={copy.articleTags}>
         {tags.map((tag) => <li>{tag}</li>)}
       </ul>
     </header>
     {tableOfContents.length > 0 && (
-      <nav class="article-toc" aria-label="On this page">
-        <p>On this page</p>
+      <nav class="article-toc" aria-label={copy.onThisPage}>
+        <p>{copy.onThisPage}</p>
         <ol>
           {tableOfContents.map((heading) => (
             <li class:list={{ 'toc-subitem': heading.depth === 3 }}>

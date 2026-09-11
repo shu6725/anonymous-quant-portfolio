@@ -1,6 +1,8 @@
 ---
 title: "Why Implied Volatility Is Not a Probability"
 description: "A clearly marked placeholder for a note on option-implied volatility and interpretation."
+locale: en
+route: implied-volatility
 date: 2026-09-08
 category: "Derivatives"
 tags:

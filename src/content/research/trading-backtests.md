@@ -1,6 +1,8 @@
 ---
 title: "Practical Problems in Trading Backtests"
 description: "A placeholder on assumptions, implementation details and the gap between simulations and execution."
+locale: en
+route: trading-backtests
 date: 2026-09-07
 category: "Quantitative Research"
 tags:

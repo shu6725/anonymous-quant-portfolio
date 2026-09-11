@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { profileJa } from '../../data/profile';
+
+export const prerender = true;
+---
+
+<BaseLayout title="連絡先" description="選択したフリーランス・契約案件に関する連絡先。" locale="ja" pagePath="contact/">
+  <section class="page-intro shell reading-width contact-page">
+    <p class="eyebrow">連絡先</p>
+    <h1>フリーランス・契約プロジェクトのご相談。</h1>
+    <p class="lead">定量リサーチ、トレーディングデータ分析、デリバティブ分析、デジタル資産リサーチ、小規模な金融ソフトウェアの試作について。</p>
+    <div class="contact-block">
+      <span>メール</span>
+      <a href={'mailto:' + profileJa.email}>{profileJa.email}</a>
+    </div>
+    <p class="placeholder-note"><strong>公開前に：</strong> <code>src/data/profile.ts</code> のプレースホルダーのメールアドレスを差し替えてください。</p>
+  </section>
+</BaseLayout>

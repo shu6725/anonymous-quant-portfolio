@@ -1,23 +1,28 @@
 ---
-import { internalPath } from '../utils/paths';
+import type { Locale } from '../i18n';
+import { localizedPath } from '../i18n';
 
 type CurrentPage = 'overview' | 'eu' | 'us' | 'japan';
 
 interface Props {
   current: CurrentPage;
+  locale: Locale;
 }
 
-const { current } = Astro.props;
+const { current, locale } = Astro.props;
+const labels = locale === 'ja'
+  ? { title: '暗号資産規制シリーズ', overview: '概要', eu: 'EU / MiCA', us: '米国', japan: '日本' }
+  : { title: 'Crypto regulation series', overview: 'Overview', eu: 'EU / MiCA', us: 'United States', japan: 'Japan' };
 const items: Array<{ id: CurrentPage; label: string; href: string }> = [
-  { id: 'overview', label: 'Overview', href: internalPath('research/crypto-regulation-series-1/') },
-  { id: 'eu', label: 'EU / MiCA', href: internalPath('research/crypto-regulation-eu/') },
-  { id: 'us', label: 'United States', href: internalPath('research/crypto-regulation-us/') },
-  { id: 'japan', label: 'Japan', href: internalPath('research/crypto-regulation-japan/') },
+  { id: 'overview', label: labels.overview, href: localizedPath(locale, 'research/crypto-regulation-series-1/') },
+  { id: 'eu', label: labels.eu, href: localizedPath(locale, 'research/crypto-regulation-eu/') },
+  { id: 'us', label: labels.us, href: localizedPath(locale, 'research/crypto-regulation-us/') },
+  { id: 'japan', label: labels.japan, href: localizedPath(locale, 'research/crypto-regulation-japan/') },
 ];
 ---
 
-<nav class="series-navigation" aria-label="Crypto regulation series">
-  <p>Crypto regulation series</p>
+<nav class="series-navigation" aria-label={labels.title}>
+  <p>{labels.title}</p>
   <ul>
     {items.map((item) => (
       <li>

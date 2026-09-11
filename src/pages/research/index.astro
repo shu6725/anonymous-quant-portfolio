@@ -5,11 +5,11 @@ import ArticleCard from '../../components/ArticleCard.astro';
 
 export const prerender = true;
 
-const articles = (await getCollection('research', ({ data }) => !data.draft))
+const articles = (await getCollection('research', ({ data }) => !data.draft && data.locale === 'en'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<BaseLayout title="Research" description="Technical notes on market microstructure, trading and quantitative research.">
+<BaseLayout title="Research" description="Technical notes on market microstructure, trading and quantitative research." locale="en" pagePath="research/">
   <section class="page-intro shell">
     <p class="eyebrow">Research</p>
     <h1>Independent research notes.</h1>
@@ -17,7 +17,7 @@ const articles = (await getCollection('research', ({ data }) => !data.draft))
   </section>
   <section class="shell section research-index" aria-label="Research articles">
     <div class="article-list">
-      {articles.map((article) => <ArticleCard article={article} />)}
+      {articles.map((article) => <ArticleCard article={article} locale="en" />)}
     </div>
   </section>
 </BaseLayout>

@@ -1,11 +1,11 @@
 ---
 import { getCollection, render } from 'astro:content';
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const articles = await getCollection('research', ({ data }) => !data.draft && data.locale === 'en');
+  const articles = await getCollection('research', ({ data }) => !data.draft && data.locale === 'ja');
   return articles.map((article) => ({
     params: { slug: article.data.route },
     props: { article },

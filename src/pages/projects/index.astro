@@ -6,7 +6,7 @@ import { projects } from '../../data/projects';
 export const prerender = true;
 ---
 
-<BaseLayout title="Projects" description="Independent market-research and visualization project scaffolds.">
+<BaseLayout title="Projects" description="Independent market-research and visualization project scaffolds." locale="en" pagePath="projects/">
   <section class="page-intro shell">
     <p class="eyebrow">Projects</p>
     <h1>Research tools and interactive demonstrations.</h1>
@@ -14,7 +14,7 @@ export const prerender = true;
   </section>
   <section class="shell section" aria-label="Project list">
     <div class="project-grid projects-full">
-      {projects.map((project) => <ProjectCard project={project} />)}
+      {projects.map((project) => <ProjectCard project={project} locale="en" />)}
     </div>
   </section>
 </BaseLayout>

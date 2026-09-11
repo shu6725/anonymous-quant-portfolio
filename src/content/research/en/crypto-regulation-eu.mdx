@@ -1,0 +1,81 @@
+---
+title: "EU / MiCA: how the entrance to the market is being aligned"
+description: "A market-structure guide to MiCA, the CASP transition, and the boundary with MiFID II for exchanges and derivatives."
+locale: en
+route: crypto-regulation-eu
+date: 2026-09-10
+category: "Crypto Regulation Series"
+tags:
+  - European Union
+  - MiCA
+  - MiFID II
+  - Market Structure
+draft: false
+---
+
+import ResearchFigure from '../../../components/ResearchFigure.astro';
+import SeriesNavigation from '../../../components/SeriesNavigation.astro';
+
+> **Crypto regulation series — EU / MiCA**  
+> “EU-ready” should not describe a brand. It should mean a specific authorised entity, a defined service, a customer location and a product classification.
+
+## The conclusion first: MiCA standardises the market entrance
+
+Calling MiCA “the law that regulates crypto” is too little information for an operator or a trader. Its practical centre is the treatment of crypto-asset service providers, or CASPs, as the unit of authorisation and conduct regulation. Whether a customer can access a product depends not only on the product name, but on which legal entity offers the service and under what authorisation.
+
+<SeriesNavigation current="eu" locale="en" />
+
+## MiCA is in force, but the transition is not identical in every Member State
+
+MiCA generally applies from 30 December 2024, with the asset-referenced-token and e-money-token provisions applying from 30 June 2024. [Article 149](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02023R1114-20240109)
+
+For providers that had already offered services lawfully, [Article 143](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02023R1114-20240109) provides a transitional regime. The default endpoint is 1 July 2026 or the earlier grant or refusal of authorisation, but Member States may decline to apply it or shorten it. It is therefore unsafe to infer that the same product changes at the same time across the entire EU.
+
+A practical review order is:
+
+1. Which **legal entity** contracts with the customer?
+2. Which **CASP services** is it authorised to provide?
+3. What **notification or passporting** applies in the customer’s country?
+4. If it relies on transition, what is the relevant national **end date**?
+
+<ResearchFigure
+  src="images/research/eu-scope-boundary.svg"
+  alt="A diagram distinguishing the MiCA crypto-asset-services lane from the MiFID II financial-instruments lane"
+  caption="EU regulatory scope boundary. Calling a product crypto does not automatically place it inside MiCA."
+/>
+
+## The boundary: when the question is whether there is a financial instrument
+
+MiCA Article 2 excludes crypto assets that qualify as financial instruments. That is why it is misleading to treat MiCA as a complete description of the EU crypto market. [ESMA’s single-rulebook explanation](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-2-scope)
+
+ESMA’s financial-instrument guidelines distinguish a derivative that uses a crypto asset as underlying from a crypto asset that may itself qualify as a derivative. For perpetual futures in particular, the absence of a maturity or settlement date does not end the analysis: ESMA directs participants to assess the contract against the MiFID II Annex I Section C categories. [ESMA guidelines, Guideline 5](https://www.esma.europa.eu/sites/default/files/2024-12/ESMA75453128700-1323_Final_Report_Guidelines_on_the_conditions_and_criteria_for_the_qualification_of_CAs_as_FIs.pdf)
+
+The answer does not come from the product label. It follows from contractual rights, underlying, settlement method and how the product is made available.
+
+## Perpetuals bring a separate leveraged-product question
+
+In February 2026, ESMA reminded firms that derivatives marketed as perpetual futures or perpetual contracts may fall within national CFD product-intervention measures. [ESMA public statement](https://www.esma.europa.eu/press-news/esma-news/esma-reminds-firms-their-obligations-under-cfd-product-intervention-measures)
+
+That is not an assertion that every EU perpetual is unavailable. The relevant question is **which contract, in which country, to which customer, with which regulatory character**. Retail, professional and corporate customer treatment can produce materially different implementations.
+
+| Layer | Question to ask | What may move first in the market |
+| --- | --- | --- |
+| Entity | Which authorised provider is involved? | Account migration and onboarding |
+| Product | MiCA service or financial instrument? | Product menu and leverage |
+| Customer | Retail, professional or corporate? | Available contracts and protections |
+| Quote currency and reporting | Which pair and reporting path? | Pair composition and operating cost |
+
+## Reporting does not substitute for liquidity, but it changes friction
+
+DAC8 has applied from 1 January 2026 and requires reporting crypto-asset service providers to collect and report defined information about transactions of EU residents. [European Commission overview](https://taxation-customs.ec.europa.eu/taxation/tax-transparency-cooperation/administrative-co-operation-and-mutual-assistance/directive-administrative-cooperation-dac/dac8_en)
+
+It does not directly ban a trade. It does, however, require identity, transaction-history and tax-classification processes to be part of operations. The more useful market question is therefore not the immediate price response to a reporting rule, but whether access friction, legal-entity choice, pair choice or product design changes.
+
+## Checklist for a trader or researcher
+
+- Record the contracting **entity and authorisation country**, not only an exchange name.
+- Classify perpetuals by underlying, settlement, leverage and customer category.
+- Do not measure “EU volume” as a single number; split it by **venue, pair and fiat/stablecoin quote currency**.
+- When using a transition endpoint as an event date, verify the Member State implementation in primary material.
+
+The EU’s market-structure force lies in the combination of cross-border access and the ability to change the entrance to that access. The next question is what happens to derivatives that sit on the other side of the MiCA/MiFID II boundary.

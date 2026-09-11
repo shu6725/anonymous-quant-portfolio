@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { projectsJa } from '../../../data/projects';
+import { localizedPath } from '../../../i18n';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return projectsJa.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={project.title} description={project.summary} locale="ja" pagePath={'projects/' + project.slug + '/'}>
+  <article class="project-page shell reading-width">
+    <a class="back-link" href={localizedPath('ja', 'projects/')}>← プロジェクト一覧</a>
+    <header class="project-header">
+      <p class="eyebrow">{project.category}</p>
+      <h1>{project.title}</h1>
+      <p class="lead">{project.summary}</p>
+      <ul class="tag-list" aria-label="プロジェクトのトピック">
+        {project.topics.map((topic) => <li>{topic}</li>)}
+      </ul>
+    </header>
+    <section class="demo-placeholder" aria-label="デモ・可視化のプレースホルダー">
+      <p class="eyebrow">デモ / 可視化</p>
+      <div class="demo-graphic" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <p>{project.demoLabel}</p>
+    </section>
+    <div class="project-sections">
+      {project.sections.map((section) => (
+        <section>
+          <h2>{section.title}</h2>
+          <p>{section.body}</p>
+        </section>
+      ))}
+    </div>
+    <section class="project-links">
+      <h2>コード / リポジトリ</h2>
+      <p>リポジトリへのリンクは意図的に未設定です。機密性と識別可能なメタデータを確認済みの公開リポジトリだけを追加してください。</p>
+    </section>
+    <section class="project-links">
+      <h2>関連リサーチ</h2>
+      <p>公開後の独立リサーチをここからリンクできます。</p>
+      <a class="text-link" href={localizedPath('ja', 'research/')}>リサーチを読む <span aria-hidden="true">→</span></a>
+    </section>
+  </article>
+</BaseLayout>

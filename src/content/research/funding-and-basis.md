@@ -1,6 +1,8 @@
 ---
 title: "Understanding Funding and Basis in Crypto Markets"
 description: "A placeholder for a note on perpetual funding, futures basis and market structure."
+locale: en
+route: funding-and-basis
 date: 2026-09-05
 category: "Digital Assets"
 tags:

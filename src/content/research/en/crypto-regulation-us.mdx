@@ -1,0 +1,76 @@
+---
+title: "United States: interpretation, product review and legislation move together"
+description: "A practical separation of the SEC/CFTC interpretation, the GENIUS Act and DCM perpetual contracts without mistaking them for one comprehensive rulebook."
+locale: en
+route: crypto-regulation-us
+date: 2026-09-10
+category: "Crypto Regulation Series"
+tags:
+  - United States
+  - SEC
+  - CFTC
+  - Stablecoins
+draft: false
+---
+
+import ResearchFigure from '../../../components/ResearchFigure.astro';
+import SeriesNavigation from '../../../components/SeriesNavigation.astro';
+
+> **Crypto regulation series — United States**  
+> Do not settle the US analysis with an asset label. Separate the asset, the offer or transaction design, the contract and the venue.
+
+## The conclusion first: several lanes operate in parallel
+
+It is too coarse to say that US crypto regulation has simply become clear. Comprehensive market-structure legislation, a federal payment-stablecoin law, SEC/CFTC interpretation and DCM product review address different units of the market. What an asset is and what contract may be offered to which customer are distinct questions.
+
+<SeriesNavigation current="us" locale="en" />
+
+<ResearchFigure
+  src="images/research/us-regulatory-path.svg"
+  alt="A diagram showing existing statutes, agency interpretation and product review as separate US regulatory paths"
+  caption="US regulatory path. Read the applicable law, transaction design and venue instead of relying on the product name."
+/>
+
+## Market-structure legislation: a House vote is not enactment
+
+The House passed the Digital Asset Market CLARITY Act by 294 to 134 in July 2025. [House Clerk roll call](https://clerk.house.gov/Votes/2025199) The vote is consequential, but it should not be compressed into the statement that a comprehensive market-structure law already exists.
+
+For research, separate a bill stage, a congressional vote, an agency interpretation and an individual order or approval. Without that separation, even the definition of an event in an event study becomes unclear.
+
+## Payment stablecoins: the GENIUS Act created one lane first
+
+The GENIUS Act, enacted in July 2025, created a federal framework for payment stablecoins, including permitted issuers, liquid-asset reserve requirements and monthly disclosures. [White House enactment announcement](https://www.whitehouse.gov/briefings-statements/2025/07/the-president-signed-into-law-s-1582/) [Fact sheet](https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/)
+
+The useful interpretation is not that the framework for all crypto assets is complete. It is that the lane closest to fiat currency and payments received a federal structure first. Market consequences can include the quote-currency pairs an exchange supports, redemption and custody paths, and collateral available to market makers.
+
+## The joint interpretation: separate the asset from the transaction design
+
+On 17 March 2026, the SEC, joined by the CFTC, published an interpretation concerning federal securities-law treatment of certain crypto assets and transactions. It describes digital commodities, digital collectibles, digital tools, stablecoins and digital securities. [SEC press release](https://www.sec.gov/newsroom/press-releases/2026-30-sec-clarifies-application-federal-securities-laws-crypto-assets)
+
+It also addresses how an asset that is not itself a security can nevertheless be involved in an investment-contract analysis depending on the offer and sale. A token name or a single classification should therefore not be treated as a universal conclusion for every transaction.
+
+That distinction matters to data design as well. A treatment group should not be a loose set of “designated tokens.” Its members, transaction form and venue need to be pinned to the primary source before they are compared with controls on size, liquidity and BTC beta.
+
+## Perpetual contracts: the contract and venue lane
+
+In May 2026, the CFTC adopted a policy on listing perpetual contracts and approved a Bitcoin spot-price-referenced perpetual on KalshiEX as a futures contract on a DCM. [CFTC policy announcement](https://www.cftc.gov/PressRoom/PressReleases/pr-9242-26) [KalshiEX approval](https://www.cftc.gov/PressRoom/PressReleases/9240-26)
+
+The correct inference is not that every perpetual has been made available without limit. The policy leaves product-specific review appropriate where underlying characteristics differ. Contract terms, listing entity, clearing and customer protections remain part of the analysis.
+
+| Unit | Question | What should not be generalised |
+| --- | --- | --- |
+| Asset | How is it classified? | That one classification settles every transaction |
+| Transaction | How is it offered, marketed and compensated? | That the asset name alone determines legal treatment |
+| Contract | What are underlying, settlement and clearing terms? | That the word perpetual determines availability |
+| Venue | How is it listed and supervised? | That offshore conditions transfer unchanged |
+
+## Translate the legal event into an implementation unit
+
+Before looking at a price response, inspect observables such as:
+
+- contracts and client categories available through a **US legal entity**;
+- **collateral and redemption paths** between fiat and stablecoins;
+- open interest, funding and basis across DCM, offshore and on-chain venues;
+- reallocation of tokens, pairs and liquidity around an interpretation or approval.
+
+The US boundary is not set by one headline. Decomposing an event into legislation, interpretation and product approval is the starting point for a market-structure analysis.

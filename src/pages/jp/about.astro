@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { backgroundJa, expertiseJa, profileJa, researchInterestsJa } from '../../data/profile';
+
+export const prerender = true;
+---
+
+<BaseLayout title="概要" description="匿名化した職務経歴とリサーチ関心領域。" locale="ja" pagePath="about/">
+  <section class="page-intro shell reading-width">
+    <p class="eyebrow">概要</p>
+    <h1>市場実務、定量的な問い、実装。</h1>
+    <p class="lead">{profileJa.summary}</p>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="background-heading">
+    <h2 id="background-heading">バックグラウンド</h2>
+    <p>このポートフォリオでは、職務経験を意図的に高い粒度で記述しています。雇用主名、機密性のある業務、パフォーマンスに関する主張は掲載しません。</p>
+    <ol class="timeline">
+      {backgroundJa.map((entry) => (
+        <li>
+          <p class="timeline-role">{entry.role}</p>
+          <p class="timeline-place">{entry.organisation}</p>
+          <p class="timeline-topics"><span>主な領域</span>{entry.topics.join(' · ')}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">定量・技術スキル</h2>
+    <div class="expertise-grid two-column">
+      {expertiseJa.map((area) => (
+        <section>
+          <h3>{area.title}</h3>
+          <ul>{area.items.map((item) => <li>{item}</li>)}</ul>
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="interests-heading">
+    <h2 id="interests-heading">リサーチ関心領域</h2>
+    <ul class="tag-list large-tags">{researchInterestsJa.map((interest) => <li>{interest}</li>)}</ul>
+  </section>
+
+  <section class="shell reading-width prose-section" aria-labelledby="work-heading">
+    <h2 id="work-heading">仕事の進め方</h2>
+    <p>金融市場の直感から、数理的な定式化、コード、データまたはシミュレーション、可視化、実務的な解釈まで、リサーチの流れを追跡できる形にすることを目指しています。独立した事例では合成データ、公開データ、または公表済みの資料のみを用い、雇用主のシステムや機密データを表すものではありません。</p>
+  </section>
+</BaseLayout>

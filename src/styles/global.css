@@ -33,12 +33,15 @@ pre { overflow-x: auto; padding: 1.2rem; border: 1px solid var(--line); backgrou
 .skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 10; background: var(--ink); color: white; padding: 0.7rem 1rem; }
 .skip-link:focus { top: 1rem; }
 .site-header { border-bottom: 1px solid var(--line); background: rgba(248, 248, 245, 0.94); }
-.nav-wrap { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.nav-wrap { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 1.35rem; }
 .wordmark { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.76rem; font-weight: 760; letter-spacing: 0.12em; text-decoration: none; white-space: nowrap; }
 .wordmark-mark { color: var(--accent); font-size: 1.2rem; letter-spacing: -0.15em; }
 .nav-list { display: flex; flex-wrap: wrap; gap: 1.35rem; margin: 0; padding: 0; list-style: none; }
 .nav-list a { color: var(--muted); font-size: 0.86rem; text-decoration: none; }
 .nav-list a[aria-current="page"], .nav-list a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 0.4em; }
+.language-switcher { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--muted); font-size: 0.72rem; font-weight: 760; letter-spacing: 0.08em; }
+.language-switcher a { color: var(--muted); text-decoration: none; }
+.language-switcher a:hover, .language-switcher a[aria-current="page"] { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 0.3em; }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 4rem; padding-block: clamp(4rem, 10vw, 8.5rem) 5rem; }
 .hero-copy { max-width: 780px; }
 .eyebrow { margin-bottom: 1rem; color: var(--accent); font-size: 0.72rem; font-weight: 760; letter-spacing: 0.13em; text-transform: uppercase; }
@@ -179,6 +182,7 @@ pre { overflow-x: auto; padding: 1.2rem; border: 1px solid var(--line); backgrou
   .shell, .reading-width { width: min(100% - 2rem, 1180px); }
   .nav-wrap { min-height: auto; padding-block: 1rem; align-items: flex-start; flex-direction: column; gap: 0.7rem; }
   .nav-list { gap: 0.8rem 1.15rem; }
+  .language-switcher { position: absolute; top: 1.2rem; right: 1rem; }
   .hero { padding-top: 3.5rem; }
   .section { padding-block: 3.5rem; }
   .section-heading { display: block; }

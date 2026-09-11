@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { availabilityJa, backgroundJa, expertiseJa, profileJa } from '../../data/profile';
+import { projectsJa } from '../../data/projects';
+import { localizedPath } from '../../i18n';
+
+export const prerender = true;
+
+const research = (await getCollection('research', ({ data }) => !data.draft && data.locale === 'ja'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="クオンツ・トレーダー" description="金融市場、定量分析、ソフトウェアのための匿名プロフェッショナル・ポートフォリオ。" locale="ja" pagePath="">
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow">{profileJa.eyebrow}</p>
+      <h1>{profileJa.title}</h1>
+      <p class="hero-tagline">{profileJa.tagline}</p>
+      <p class="hero-summary">デリバティブ、デジタル資産、システマティックトレーディングにまたがる実務経験。</p>
+      <div class="button-row">
+        <a class="button button-primary" href={localizedPath('ja', 'projects/')}>プロジェクトを見る</a>
+        <a class="button button-secondary" href={localizedPath('ja', 'research/')}>リサーチを読む</a>
+        <a class="button button-secondary" href={localizedPath('ja', 'contact/')}>連絡する</a>
+      </div>
+    </div>
+    <aside class="hero-index" aria-label="主な領域">
+      <span>01</span><p>金融市場</p>
+      <span>02</span><p>定量リサーチ</p>
+      <span>03</span><p>ソフトウェア</p>
+    </aside>
+  </section>
+
+  <section class="shell section" aria-labelledby="selected-projects">
+    <div class="section-heading">
+      <p class="eyebrow">主な取り組み</p>
+      <h2 id="selected-projects">リサーチプロジェクト</h2>
+      <a class="text-link" href={localizedPath('ja', 'projects/')}>すべてのプロジェクト <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="project-grid">
+      {projectsJa.map((project) => <ProjectCard project={project} locale="ja" />)}
+    </div>
+  </section>
+
+  <section class="shell section section-rule" aria-labelledby="expertise">
+    <div class="section-heading compact">
+      <p class="eyebrow">対応領域</p>
+      <h2 id="expertise">専門領域</h2>
+    </div>
+    <div class="expertise-grid">
+      {expertiseJa.map((area) => (
+        <section>
+          <h3>{area.title}</h3>
+          <ul>{area.items.map((item) => <li>{item}</li>)}</ul>
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section section-rule" aria-labelledby="research-notes">
+    <div class="section-heading">
+      <p class="eyebrow">執筆</p>
+      <h2 id="research-notes">注目のリサーチ</h2>
+      <a class="text-link" href={localizedPath('ja', 'research/')}>リサーチ一覧 <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="article-list">
+      {research.map((article) => <ArticleCard article={article} locale="ja" />)}
+    </div>
+  </section>
+
+  <section class="shell section section-rule split-section" aria-labelledby="background">
+    <div class="section-heading compact">
+      <p class="eyebrow">職務背景</p>
+      <h2 id="background">市場での経験</h2>
+      <p>{profileJa.summary}</p>
+    </div>
+    <ol class="timeline">
+      {backgroundJa.map((entry) => (
+        <li>
+          <p class="timeline-role">{entry.role}</p>
+          <p class="timeline-place">{entry.organisation}</p>
+          <ul class="tag-list">{entry.topics.map((topic) => <li>{topic}</li>)}</ul>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="shell section availability-section" aria-labelledby="available-work">
+    <div>
+      <p class="eyebrow">対応可能な案件</p>
+      <h2 id="available-work">対応可能な仕事</h2>
+      <p class="availability-statement">{profileJa.availability}</p>
+      <p>定量リサーチ、トレーディング戦略の調査、市場・取引データ分析、デジタル資産リサーチ、デリバティブ分析、トレーディングシステムの試作、Pythonによる金融分析、マーケット・マイクロストラクチャーの調査に対応します。</p>
+      <a class="button button-primary" href={localizedPath('ja', 'contact/')}>相談を始める</a>
+    </div>
+    <div class="engagement-grid">
+      {availabilityJa.map((item) => (
+        <section>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </section>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

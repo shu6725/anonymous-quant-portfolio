@@ -1,6 +1,8 @@
 ---
 title: "Order Flow Imbalance and Short-Term Price Dynamics"
 description: "A placeholder for a research note on order flow, liquidity and short-horizon price behaviour."
+locale: en
+route: order-flow-imbalance
 date: 2026-09-06
 category: "Market Microstructure"
 tags:

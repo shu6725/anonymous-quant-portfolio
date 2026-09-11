@@ -1,6 +1,18 @@
+---
+import type { Locale } from '../i18n';
+import { ui } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = ui[locale];
+---
+
 <footer class="site-footer">
   <div class="shell footer-grid">
-    <p>Independent research and professional portfolio. Views expressed here are personal and do not represent any current or former employer.</p>
-    <p>Content is provided for research and educational purposes and does not constitute investment advice.</p>
+    <p>{copy.footerPortfolio}</p>
+    <p>{copy.footerDisclaimer}</p>
   </div>
 </footer>
