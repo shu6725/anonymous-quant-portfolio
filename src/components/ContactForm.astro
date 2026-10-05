@@ -1,0 +1,147 @@
+---
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() ?? '';
+const isConfigured = /^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+\/?$/.test(endpoint);
+
+const copy = locale === 'ja'
+  ? {
+      title: 'お問い合わせフォーム',
+      unavailable: 'お問い合わせフォームは現在準備中です。しばらくしてから、もう一度お試しください。',
+      name: 'お名前',
+      email: '返信用メールアドレス',
+      organisation: '会社名・組織名（任意）',
+      message: 'ご相談内容',
+      messageHint: '案件の概要、希望する進め方、想定時期などをご記入ください。',
+      send: '送信する',
+      sending: '送信しています…',
+      sent: '送信しました。内容を確認のうえ、ご連絡します。',
+      error: '送信できませんでした。時間をおいてもう一度お試しください。',
+      validationError: '入力内容を確認して、もう一度お試しください。',
+      privacy: '送信内容はお問い合わせへの返信にのみ使用します。',
+      honeypot: 'この項目は空欄のままにしてください。',
+      subject: 'ポートフォリオサイトからのお問い合わせ',
+    }
+  : {
+      title: 'Contact form',
+      unavailable: 'The contact form is being prepared. Please check back shortly.',
+      name: 'Name',
+      email: 'Reply-to email',
+      organisation: 'Company or organisation (optional)',
+      message: 'How can I help?',
+      messageHint: 'Please include a short project outline, expected scope and timing.',
+      send: 'Send enquiry',
+      sending: 'Sending…',
+      sent: 'Thank you — your message has been sent.',
+      error: 'The message could not be sent. Please try again shortly.',
+      validationError: 'Please check the required fields and try again.',
+      privacy: 'Your details will only be used to respond to this enquiry.',
+      honeypot: 'Leave this field empty.',
+      subject: 'Portfolio contact enquiry',
+    };
+---
+
+{isConfigured ? (
+  <form
+    class="contact-form"
+    method="POST"
+    action={endpoint}
+    data-contact-form
+    data-sending={copy.sending}
+    data-sent={copy.sent}
+    data-error={copy.error}
+    data-validation-error={copy.validationError}
+  >
+    <input type="hidden" name="_subject" value={copy.subject} />
+    <input type="hidden" name="source_page" value={Astro.url.pathname} />
+
+    <div class="form-field">
+      <label for={`contact-name-${locale}`}>{copy.name}</label>
+      <input id={`contact-name-${locale}`} name="name" autocomplete="name" required />
+    </div>
+
+    <div class="form-field">
+      <label for={`contact-email-${locale}`}>{copy.email}</label>
+      <input id={`contact-email-${locale}`} name="email" type="email" autocomplete="email" required />
+    </div>
+
+    <div class="form-field">
+      <label for={`contact-organisation-${locale}`}>{copy.organisation}</label>
+      <input id={`contact-organisation-${locale}`} name="organisation" autocomplete="organization" />
+    </div>
+
+    <div class="form-field">
+      <label for={`contact-message-${locale}`}>{copy.message}</label>
+      <textarea id={`contact-message-${locale}`} name="message" rows="7" required aria-describedby={`contact-message-hint-${locale}`}></textarea>
+      <small id={`contact-message-hint-${locale}`}>{copy.messageHint}</small>
+    </div>
+
+    <div class="contact-honeypot" aria-hidden="true">
+      <label for={`contact-website-${locale}`}>{copy.honeypot}</label>
+      <input id={`contact-website-${locale}`} name="website" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div class="form-actions">
+      <button class="button button-primary" type="submit" data-submit>{copy.send}</button>
+      <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+    </div>
+    <p class="form-privacy">{copy.privacy}</p>
+  </form>
+) : (
+  <aside class="contact-form-unavailable" aria-live="polite">
+    <h2>{copy.title}</h2>
+    <p>{copy.unavailable}</p>
+  </aside>
+)}
+
+<script>
+  const contactForms = document.querySelectorAll<HTMLFormElement>('[data-contact-form]');
+
+  for (const form of contactForms) {
+    const submitButton = form.querySelector<HTMLButtonElement>('[data-submit]');
+    const status = form.querySelector<HTMLElement>('[data-form-status]');
+    const honeypot = form.querySelector<HTMLInputElement>('[name="website"]');
+
+    form.addEventListener('submit', async (event) => {
+      if (!form.reportValidity()) return;
+      event.preventDefault();
+
+      if (!submitButton || !status) return;
+      if (honeypot?.value) {
+        status.textContent = form.dataset.sent ?? '';
+        form.reset();
+        return;
+      }
+
+      submitButton.disabled = true;
+      status.textContent = form.dataset.sending ?? '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) {
+          status.textContent = response.status === 422
+            ? form.dataset.validationError ?? ''
+            : form.dataset.error ?? '';
+          return;
+        }
+
+        form.reset();
+        status.textContent = form.dataset.sent ?? '';
+      } catch {
+        status.textContent = form.dataset.error ?? '';
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  }
+</script>

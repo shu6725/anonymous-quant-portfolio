@@ -1,6 +1,6 @@
 # Anonymous Quant / Trading Portfolio
 
-An anonymous, static-first professional portfolio for financial-markets research, trading and software work. It uses Astro, TypeScript, Astro Content Collections, Markdown, KaTeX and GitHub Pages. There is no analytics, tracking or contact-form backend.
+An anonymous, static-first professional portfolio for financial-markets research, trading and software work. It uses Astro, TypeScript, Astro Content Collections, Markdown, KaTeX and GitHub Pages. There is no analytics, tracking or custom contact-form backend.
 
 ## Local development
 
@@ -22,7 +22,7 @@ The static deployment build is written to `dist/`.
 
 ## Editing the portfolio
 
-- Edit the identity, email, summary, expertise, experience and availability data in `src/data/profile.ts`.
+- Edit the identity, summary, expertise, experience and availability data in `src/data/profile.ts`.
 - Edit the initial project scaffolds in `src/data/projects.ts`. A project page is generated for every entry.
 - Add articles in `src/content/research/` as `.md` or `.mdx` files. Every public article has an `en` and a `ja` entry with the same `route` value. Drafts (`draft: true`) are excluded from public listings and routes.
 - Add reusable Astro components in `src/components/`; the project-page scaffold is designed to receive a small client-side interactive component when a concrete research demo is selected.
@@ -68,11 +68,22 @@ GitHub Pages from a private repository requires a GitHub plan that supports it. 
 
 The Astro configuration automatically adds the repository path when it builds in GitHub Actions, so internal links work on a project Pages URL. A standard GitHub Pages URL exposes the GitHub account and repository name; use an anonymous account and neutral repository name if that matters for the portfolio.
 
+## Contact form
+
+The contact page is a static form that posts directly to Formspree. The recipient email is configured in Formspree and is never written into the site source or generated HTML. Formspree requires an account and a verified recipient email; its form endpoint is public by design, but it is not an API secret.
+
+1. Create a form in the [Formspree dashboard](https://formspree.io/) and copy the endpoint shown in its Integration section, for example `https://formspree.io/f/abcde123`.
+2. In the GitHub repository, open **Settings → Secrets and variables → Actions → Variables** and add `PUBLIC_CONTACT_FORM_ENDPOINT` with that endpoint as its value.
+3. Push a commit to `main`, or rerun the Pages workflow. The workflow passes the variable into the static Astro build.
+4. In Formspree, restrict accepted domains to the production site and enable its available spam protection before sharing the link widely.
+
+Until the variable is set, the public Contact page deliberately shows a short unavailable message rather than revealing an email address. Do not place private Formspree API keys or recipient addresses in repository variables, source files, or client-side code.
+
 ## Privacy and noindex
 
 Every page emits `<meta name="robots" content="noindex, nofollow">`, and `public/robots.txt` disallows crawlers. GitHub Pages does not provide this project with custom response-header configuration, so the `X-Robots-Tag` header is intentionally not configured. These settings reduce discovery but are not access control; never place confidential content on the public site.
 
-No sitemap, analytics, tracking script, user account, environment variable or third-party embed is configured.
+No sitemap, analytics or tracking script is configured. The Contact page uses Formspree only after `PUBLIC_CONTACT_FORM_ENDPOINT` has been configured.
 
 Run the output check after replacing placeholders:
 
@@ -85,7 +96,8 @@ The checker intentionally fails while `contact@example.com` remains. You can che
 
 ## Pre-deployment checklist
 
-- [ ] Replace placeholder email in `src/data/profile.ts`.
+- [ ] Create the Formspree form and configure `PUBLIC_CONTACT_FORM_ENDPOINT` as a GitHub Actions variable.
+- [ ] Verify that the recipient email and private Formspree API keys do not appear in source or generated output.
 - [ ] Verify no real name appears in the site, repository or generated output.
 - [ ] Verify employer names are anonymized.
 - [ ] Verify Git author identity, GitHub account name and repository visibility.

@@ -2,7 +2,6 @@ export const profile = {
   title: 'Quantitative Trader',
   eyebrow: 'TRADING / QUANTITATIVE RESEARCH',
   tagline: 'Financial Markets × Quantitative Analysis × Software',
-  email: 'contact@example.com', // TODO: replace before any production deployment.
   availability: 'Available for selected freelance and contract projects.',
   summary:
     'Professional markets practitioner with experience in derivatives, digital assets, market making and quantitative research. My work sits at the intersection of financial markets, quantitative analysis and software.',
@@ -63,7 +62,6 @@ export const profileJa = {
   title: 'クオンツ・トレーダー',
   eyebrow: 'トレーディング / 定量リサーチ',
   tagline: '金融市場 × 定量分析 × ソフトウェア',
-  email: 'contact@example.com', // TODO: 公開前に必ず差し替える。
   availability: '選択したフリーランス・契約プロジェクトに対応しています。',
   summary:
     'デリバティブ、デジタル資産、マーケットメイク、定量リサーチの経験を持つ金融市場の実務家です。金融市場、定量分析、ソフトウェアの接点で仕事をしています。',
