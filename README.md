@@ -85,14 +85,14 @@ Every page emits `<meta name="robots" content="noindex, nofollow">`, and `public
 
 No sitemap, analytics or tracking script is configured. The Contact page uses Formspree only after `PUBLIC_CONTACT_FORM_ENDPOINT` has been configured.
 
-Run the output check after replacing placeholders:
+Run the output check with the identifying terms you want to guard against:
 
 ```bash
 npm run build
-npm run privacy:check
+PRIVACY_AUDIT_TERMS="your name,personal email,employer name" npm run privacy:check
 ```
 
-The checker intentionally fails while `contact@example.com` remains. You can check additional identifying terms with `PRIVACY_AUDIT_TERMS="name@example.com,employer name" npm run privacy:check`.
+The privacy check always detects source maps. When `PRIVACY_AUDIT_TERMS` is set, it also scans the generated site for each comma-separated term.
 
 ## Pre-deployment checklist
 

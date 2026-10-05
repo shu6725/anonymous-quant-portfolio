@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const outputDirectory = join(process.cwd(), 'dist');
-const configuredTerms = (process.env.PRIVACY_AUDIT_TERMS ?? 'contact@example.com')
+const configuredTerms = (process.env.PRIVACY_AUDIT_TERMS ?? '')
   .split(',')
   .map((term) => term.trim())
   .filter(Boolean);
