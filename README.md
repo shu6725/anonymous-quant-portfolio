@@ -70,14 +70,14 @@ The Astro configuration automatically adds the repository path when it builds in
 
 ## Contact form
 
-The contact page is a static form that posts directly to Formspree. The recipient email is configured in Formspree and is never written into the site source or generated HTML. Formspree requires an account and a verified recipient email; its form endpoint is public by design, but it is not an API secret.
+The contact page is a static form that posts directly to Formspree. The recipient email is configured in Formspree and is never written into the site source or generated HTML. Formspree requires an account and a verified recipient email; its form endpoint is public by design, but it is not an API secret. The current endpoint is set in `src/components/ContactForm.astro` and can be overridden during a deployment with `PUBLIC_CONTACT_FORM_ENDPOINT`.
 
 1. Create a form in the [Formspree dashboard](https://formspree.io/) and copy the endpoint shown in its Integration section, for example `https://formspree.io/f/abcde123`.
-2. In the GitHub repository, open **Settings → Secrets and variables → Actions → Variables** and add `PUBLIC_CONTACT_FORM_ENDPOINT` with that endpoint as its value.
-3. Push a commit to `main`, or rerun the Pages workflow. The workflow passes the variable into the static Astro build.
+2. To change the endpoint without editing source, open **Settings → Secrets and variables → Actions → Variables** in GitHub and add `PUBLIC_CONTACT_FORM_ENDPOINT` with the new endpoint as its value.
+3. Push a commit to `main`, or rerun the Pages workflow. The workflow passes the optional variable into the static Astro build.
 4. In Formspree, restrict accepted domains to the production site and enable its available spam protection before sharing the link widely.
 
-Until the variable is set, the public Contact page deliberately shows a short unavailable message rather than revealing an email address. Do not place private Formspree API keys or recipient addresses in repository variables, source files, or client-side code.
+Do not place private Formspree API keys or recipient addresses in repository variables, source files, or client-side code.
 
 ## Privacy and noindex
 
@@ -96,7 +96,7 @@ The privacy check always detects source maps. When `PRIVACY_AUDIT_TERMS` is set,
 
 ## Pre-deployment checklist
 
-- [ ] Create the Formspree form and configure `PUBLIC_CONTACT_FORM_ENDPOINT` as a GitHub Actions variable.
+- [ ] Verify that the configured Formspree endpoint belongs to the intended form; optionally set `PUBLIC_CONTACT_FORM_ENDPOINT` as a GitHub Actions variable to override it without source edits.
 - [ ] Verify that the recipient email and private Formspree API keys do not appear in source or generated output.
 - [ ] Verify no real name appears in the site, repository or generated output.
 - [ ] Verify employer names are anonymized.

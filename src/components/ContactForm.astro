@@ -6,7 +6,10 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-const endpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() ?? '';
+// A Formspree endpoint is intentionally public: it is rendered as the form action.
+// Do not put the recipient address or Formspree API keys in this project.
+const defaultEndpoint = 'https://formspree.io/f/xyekyveq';
+const endpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() || defaultEndpoint;
 const isConfigured = /^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+\/?$/.test(endpoint);
 
 const copy = locale === 'ja'
