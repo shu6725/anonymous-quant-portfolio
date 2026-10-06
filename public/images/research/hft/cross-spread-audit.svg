@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Audit of a two-venue BTC JPY cross-spread dataset</title>
+  <desc id="desc">A compact audit summarizes 10,285 sampled rows, raw negative cross-spread rates and data-coverage gaps, and concludes that the data is not execution evidence.</desc>
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">The raw screen found dislocations—not a strategy</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">BTC/JPY best-bid/ask reconstruction from two public venue feeds · 7–15 May 2026, JST</text>
+    <rect x="72" y="142" width="1056" height="94" fill="#e7f0ef" stroke="#0f5966"/>
+    <text x="104" y="177" fill="#0a424d" font-size="14" font-weight="700" letter-spacing="1">INPUT</text>
+    <text x="104" y="210" fill="#172026" font-size="23" font-weight="700">10,285 one-minute-style rows</text>
+    <text x="620" y="210" fill="#36514e" font-size="16">Best bid/ask snapshots were carried forward between updates.</text>
+    <rect x="72" y="270" width="508" height="150" fill="#fcfcfa" stroke="#d9dedb"/>
+    <text x="104" y="306" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">RAW DIRECTION A</text>
+    <text x="104" y="345" fill="#172026" font-size="18" font-weight="700">Buy bitFlyer ask / sell Coincheck bid</text>
+    <text x="104" y="384" fill="#b44b3d" font-size="32" font-weight="700">42.9%</text>
+    <text x="250" y="384" fill="#5c676f" font-size="16">of rows were negative before costs</text>
+    <rect x="620" y="270" width="508" height="150" fill="#fcfcfa" stroke="#d9dedb"/>
+    <text x="652" y="306" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">RAW DIRECTION B</text>
+    <text x="652" y="345" fill="#172026" font-size="18" font-weight="700">Buy Coincheck ask / sell bitFlyer bid</text>
+    <text x="652" y="384" fill="#b44b3d" font-size="32" font-weight="700">10.4%</text>
+    <text x="798" y="384" fill="#5c676f" font-size="16">of rows were negative before costs</text>
+    <rect x="72" y="454" width="1056" height="94" fill="#f9ece8" stroke="#b44b3d"/>
+    <text x="104" y="489" fill="#8a372c" font-size="14" font-weight="700" letter-spacing="1">WHY THIS IS NOT EXECUTION EVIDENCE</text>
+    <text x="104" y="522" fill="#172026" font-size="18">The generated sample has 10 gaps longer than two minutes; the longest is 21 minutes.</text>
+    <text x="104" y="546" fill="#6f4d47" font-size="15">Individual quote ages, executable sizes and order-arrival sequencing were not retained—so a negative reading cannot be treated as a fillable trade.</text>
+    <text x="72" y="590" fill="#5c676f" font-size="13">Negative here means only that the displayed cross-spread was below zero before fees and execution costs.</text>
+  </g>
+</svg>

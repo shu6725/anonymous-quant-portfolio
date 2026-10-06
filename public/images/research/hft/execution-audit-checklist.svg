@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Checklist for turning a cross-spread observation into an execution test</title>
+  <desc id="desc">A six-step checklist lists quote age, order book size, costs, order sequencing, inventory and a replay or paper test.</desc>
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">What the next data product must retain</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">A cross-spread becomes researchable only when it can be audited in the order an execution would occur.</text>
+    <g fill="#e7f0ef" stroke="#0f5966">
+      <rect x="72" y="148" width="316" height="104"/><rect x="442" y="148" width="316" height="104"/><rect x="812" y="148" width="316" height="104"/>
+      <rect x="72" y="294" width="316" height="104"/><rect x="442" y="294" width="316" height="104"/><rect x="812" y="294" width="316" height="104"/>
+    </g>
+    <g fill="#0a424d" font-size="14" font-weight="700" letter-spacing="1">
+      <text x="100" y="181">01 · QUOTE AGE</text><text x="470" y="181">02 · AVAILABLE SIZE</text><text x="840" y="181">03 · ALL-IN COST</text>
+      <text x="100" y="327">04 · ORDER SEQUENCING</text><text x="470" y="327">05 · INVENTORY</text><text x="840" y="327">06 · REPLAY</text>
+    </g>
+    <g fill="#172026" font-size="17" font-weight="700">
+      <text x="100" y="211">Timestamp for each venue’s</text><text x="100" y="234">individual bid and ask</text>
+      <text x="470" y="211">Depth at the intended</text><text x="470" y="234">trade size</text>
+      <text x="840" y="211">Fees, rebates, slippage and</text><text x="840" y="234">the cost of capital</text>
+      <text x="100" y="357">Which order arrives first,</text><text x="100" y="380">and what happens if it fills alone</text>
+      <text x="470" y="357">Pre-funded balances and</text><text x="470" y="380">position limits by venue</text>
+      <text x="840" y="357">Order-level replay or a</text><text x="840" y="380">conservative paper execution</text>
+    </g>
+    <text x="72" y="460" fill="#5c676f" font-size="15">This is a data-contract checklist, not a promise that the resulting strategy will be profitable.</text>
+  </g>
+</svg>

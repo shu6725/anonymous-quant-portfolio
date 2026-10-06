@@ -1,0 +1,81 @@
+---
+title: "Before calling a price gap an arbitrage"
+description: "A small BTC/JPY two-venue analysis that separates an observed price difference from an executable arbitrage."
+locale: en
+route: cross-spread-is-not-arbitrage
+date: 2026-10-06
+category: "Market Microstructure"
+tags:
+  - Arbitrage
+  - Execution
+  - Market Data
+  - Research Process
+draft: false
+---
+
+import ResearchFigure from '../../../components/ResearchFigure.astro';
+
+> **Research note / work in progress**
+>
+> This is a small data audit based on BTC/JPY books reconstructed from two public feeds. It uses no employer or client data. “Arbitrage” is treated here as a hypothesis requiring a separate execution test—not as a label for an observed price difference.
+
+## A price gap creates a question first
+
+Two venues having different midpoint prices is normal. But a midpoint is not an executable price. Even when one venue’s ask and the other venue’s bid appear favourable, that does not mean both orders can be filled at the same time and at the same size.
+
+The conclusion of this note is simple: **observing a price difference is the beginning of an execution-data audit, not the discovery of an arbitrage.**
+
+## There are three separate layers
+
+<ResearchFigure
+  src="images/research/hft/cross-spread-layers.svg"
+  alt="A diagram that separates a midpoint basis, a two-venue ask-bid cross-spread and executable net PnL into three distinct layers"
+  caption="Three layers. A midpoint comparison is descriptive; a cross-spread needs contemporaneous quotes; executable PnL is a further, separate problem."
+/>
+
+A rough gross cross-spread for a buy direction can be written as:
+
+$$
+g_t = operatorname{bid}_{	ext{sell venue},t} - operatorname{ask}_{	ext{buy venue},t}
+$$
+
+When $g_t > 0$, the displayed sell price exceeds the displayed buy price. That is only a screen. Fees, latency, book size, rejected orders and the inventory risk of a one-sided fill must be accounted for before it becomes an execution candidate.
+
+## What the first screen showed
+
+I reconstructed best bid / ask for BTC/JPY from public bitFlyer and Coincheck feeds and produced 10,285 rows at roughly one-minute granularity from 7 to 15 May 2026 (JST). Counting negative raw cross-spreads—rows where the displayed buy price was below the displayed sell price—produced surprisingly frequent readings.
+
+| Observation | Result | What it does not establish |
+| --- | ---: | --- |
+| Rows | 10,285 | Number of independent execution opportunities |
+| Negative raw cross: buy bitFlyer / sell Coincheck | 42.9% | Share of simultaneous, fillable trades |
+| Negative raw cross: buy Coincheck / sell bitFlyer | 10.4% | Share that remained profitable after costs |
+| Produced-sample gaps longer than two minutes | 10, largest 21 minutes | Age of each venue’s quote |
+
+<ResearchFigure
+  src="images/research/hft/cross-spread-audit.svg"
+  alt="A data audit showing 42.9 percent and 10.4 percent negative raw cross-spread rates in opposite directions, along with coverage gaps that prevent treating them as execution evidence"
+  caption="Raw-screen audit. “Negative” means only that the displayed cross-spread was below zero before costs; it does not mean an executable arbitrage profit."
+/>
+
+It would be premature to treat the directional asymmetry as evidence of return. The source table merges venue updates and carries forward the last observed bid / ask. It does not preserve the individual quote time, executable size or event sequencing for each venue.
+
+What this shows is **not a large number of trading opportunities, but the need for a more precise data contract.**
+
+## Having two books is not the same as being able to trade both
+
+The next cross-spread dataset needs individual timestamps for each venue’s bid and ask. If one book is seconds old, an apparent opportunity may be nothing more than a timing mismatch.
+
+It must also retain depth at the intended size, pre-funded balances, all trading costs, order sequencing and the response to a one-sided fill. Any arbitrage that relies on transferring an asset between venues is often governed more by transfer time and inventory cost than by the few observed basis points.
+
+<ResearchFigure
+  src="images/research/hft/execution-audit-checklist.svg"
+  alt="A checklist of quote age, book depth, all-in costs, order sequencing, inventory by venue and order-level replay for a cross-spread study"
+  caption="Execution-data contract. The next output should not be another signal; it should be a dataset that makes each observation auditable in the order an execution would occur."
+/>
+
+## What comes next
+
+This is not a proposed trading strategy. The next iteration first records quote age, then keeps only rows where both venues have updated within a defined threshold. It can then apply size-aware depth, fees and one-sided-fill rules in a conservative paper execution.
+
+Only a difference that remains after those steps is worth replaying. Spotting a market price difference is easy; isolating an executable difference is the actual microstructure-research problem.

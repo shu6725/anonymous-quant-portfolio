@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">The layers between a price difference and executable arbitrage</title>
+  <desc id="desc">A three-stage diagram separates a midpoint basis, a cross-spread snapshot and executable net PnL.</desc>
+  <rect width="1200" height="640" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">A price difference is not yet an arbitrage</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">Each step answers a different question. Treating them as equivalent produces false positives.</text>
+    <g stroke="#aebbb8" stroke-width="2" fill="none"><path d="M396 294 L430 294"/><path d="M770 294 L804 294"/></g>
+    <g fill="#aebbb8"><path d="M422 288h12l-6 8z"/><path d="M796 288h12l-6 8z"/></g>
+    <rect x="72" y="164" width="324" height="260" fill="#fcfcfa" stroke="#d9dedb"/>
+    <text x="100" y="205" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">01 · MIDPOINT BASIS</text>
+    <text x="100" y="245" fill="#172026" font-size="20" font-weight="700">A descriptive comparison</text>
+    <text x="100" y="286" fill="#5c676f" font-size="16">mid(A) − mid(B)</text>
+    <text x="100" y="314" fill="#5c676f" font-size="16">────────────────</text>
+    <text x="100" y="338" fill="#5c676f" font-size="16">reference price</text>
+    <text x="100" y="384" fill="#5c676f" font-size="14">Useful for locating dislocations.</text>
+    <text x="100" y="405" fill="#b44b3d" font-size="14">Neither side is an executable price.</text>
+    <rect x="438" y="164" width="332" height="260" fill="#e7f0ef" stroke="#0f5966"/>
+    <text x="466" y="205" fill="#0a424d" font-size="14" font-weight="700" letter-spacing="1">02 · CROSS-SPREAD SNAPSHOT</text>
+    <text x="466" y="245" fill="#172026" font-size="20" font-weight="700">A gross, time-stamped test</text>
+    <text x="466" y="286" fill="#36514e" font-size="16">ask(buy venue) − bid(sell venue)</text>
+    <text x="466" y="330" fill="#36514e" font-size="14">Negative can be interesting—but only if</text>
+    <text x="466" y="351" fill="#36514e" font-size="14">both quotes are current and available.</text>
+    <text x="466" y="405" fill="#b44b3d" font-size="14">Still excludes fees, latency and fills.</text>
+    <rect x="812" y="164" width="316" height="260" fill="#f9ece8" stroke="#b44b3d"/>
+    <text x="840" y="205" fill="#8a372c" font-size="14" font-weight="700" letter-spacing="1">03 · EXECUTABLE NET PNL</text>
+    <text x="840" y="245" fill="#172026" font-size="20" font-weight="700">A separate execution problem</text>
+    <text x="840" y="286" fill="#6f4d47" font-size="14">Cross spread</text>
+    <text x="840" y="309" fill="#6f4d47" font-size="14">− fees − slippage − stale-quote risk</text>
+    <text x="840" y="332" fill="#6f4d47" font-size="14">− rejects − inventory and transfer costs</text>
+    <text x="840" y="384" fill="#b44b3d" font-size="14">Requires simultaneous, size-aware fills.</text>
+    <line x1="72" y1="494" x2="1128" y2="494" stroke="#d9dedb"/>
+    <text x="72" y="530" fill="#172026" font-size="18" font-weight="700">The research question changes at every layer.</text>
+    <text x="72" y="560" fill="#5c676f" font-size="15">A wide midpoint gap can be real and still be impossible to trade. A negative cross-spread can be real and still disappear before either order reaches the book.</text>
+  </g>
+</svg>
