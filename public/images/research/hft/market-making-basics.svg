@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Basic market-making mechanics and PnL decomposition</title>
+  <desc id="desc">A stylized order book with bid and ask quotes is paired with a decomposition of spread capture, adverse selection, fees and inventory cost.</desc>
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">A market maker earns a spread—conditionally</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">The visible spread is the starting point. The realised result depends on which orders fill, when, and what price does next.</text>
+    <rect x="72" y="142" width="548" height="332" fill="#fcfcfa" stroke="#d9dedb"/>
+    <text x="104" y="180" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">SIMPLIFIED ORDER BOOK</text>
+    <line x1="348" y1="226" x2="348" y2="408" stroke="#aebbb8" stroke-width="1" stroke-dasharray="5 5"/>
+    <text x="348" y="210" fill="#5c676f" font-size="14" text-anchor="middle">reference mid</text>
+    <rect x="140" y="308" width="168" height="42" fill="#e7f0ef" stroke="#0f5966"/>
+    <text x="224" y="335" fill="#0a424d" font-size="17" font-weight="700" text-anchor="middle">maker bid</text>
+    <rect x="388" y="246" width="168" height="42" fill="#e7f0ef" stroke="#0f5966"/>
+    <text x="472" y="273" fill="#0a424d" font-size="17" font-weight="700" text-anchor="middle">maker ask</text>
+    <path d="M 94 329 L 130 329" stroke="#b44b3d" stroke-width="2"/><path d="M126 323h12l-6 12z" fill="#b44b3d"/>
+    <text x="94" y="305" fill="#b44b3d" font-size="14">market sell</text>
+    <path d="M 600 267 L 566 267" stroke="#b44b3d" stroke-width="2"/><path d="M570 261h-12l6 12z" fill="#b44b3d"/>
+    <text x="520" y="235" fill="#b44b3d" font-size="14">market buy</text>
+    <text x="348" y="444" fill="#5c676f" font-size="15" text-anchor="middle">A fill creates inventory. The next price move decides whether the captured spread remains.</text>
+    <rect x="664" y="142" width="464" height="332" fill="#ffffff" stroke="#d9dedb"/>
+    <text x="696" y="180" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">SIMPLIFIED PNL DECOMPOSITION</text>
+    <text x="696" y="230" fill="#172026" font-size="22" font-weight="700">Net PnL</text>
+    <text x="836" y="230" fill="#5c676f" font-size="20">=</text>
+    <text x="872" y="230" fill="#0a424d" font-size="18" font-weight="700">spread captured</text>
+    <line x1="696" y1="255" x2="1096" y2="255" stroke="#d9dedb"/>
+    <text x="726" y="300" fill="#b44b3d" font-size="18">− adverse selection / markout</text>
+    <text x="726" y="340" fill="#b44b3d" font-size="18">− trading fees and rebates</text>
+    <text x="726" y="380" fill="#b44b3d" font-size="18">− inventory and forced-exit costs</text>
+    <text x="696" y="434" fill="#5c676f" font-size="14">Funding, latency and venue-specific costs may add further terms.</text>
+    <line x1="72" y1="532" x2="1128" y2="532" stroke="#d9dedb"/>
+    <text x="72" y="570" fill="#172026" font-size="18" font-weight="700">The aim of a backtest is not to display the first term. It is to audit every term that can erase it.</text>
+  </g>
+</svg>

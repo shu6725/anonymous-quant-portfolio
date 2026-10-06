@@ -1,0 +1,89 @@
+---
+title: "How I measure a market-making backtest"
+description: "How spread capture works, and how I read a market-making backtest without stopping at PnL."
+locale: en
+route: how-i-measure-market-making
+date: 2026-10-06T23:00:00Z
+category: "Research Framework"
+tags:
+  - Market Making
+  - Backtesting
+  - Performance Measurement
+  - Execution
+draft: false
+---
+
+import ResearchFigure from '../../../components/ResearchFigure.astro';
+
+> **Research framework**
+>
+> This is the baseline note that comes before individual strategy results. Some figures use excerpts from independent simulations, but this is neither investment advice nor a record of live trading performance.
+
+## What a market maker is actually doing
+
+A market maker shows an ask to someone who wants to buy and a bid to someone who wants to sell. If both sides fill in a balanced way, it appears possible to collect the difference between them a little at a time.
+
+But fills are not neutral. If an ask fills just before the market rises, the maker has sold before having to buy back higher. If a bid fills just before a decline, the maker is left holding inventory as the price falls. This is adverse selection, and it is the central difficulty in passive quoting.
+
+<ResearchFigure
+  src="images/research/hft/market-making-basics.svg"
+  alt="A diagram showing maker bid and ask quotes, inventory after fills, and net PnL after spread capture, adverse selection, fees and inventory cost"
+  caption="Market-making basics. The visible spread is not revenue. What remains after price movement, inventory and costs is the result."
+/>
+
+In a deliberately simplified form, the PnL to examine is:
+
+$$
+\text{Net PnL}
+\approx
+\text{spread captured}
+- \text{adverse selection}
+- \text{fees}
+- \text{inventory cost}
+$$
+
+Funding, latency, order sequencing and the cost of closing a position may add further terms. The point is not to treat this as a complete accounting identity. It is to start from the fact that **capturing spread is not enough**.
+
+## Why I do not stop at PnL
+
+An apparent PnL improvement can simply mean that the strategy has almost stopped trading. Conversely, a high trade count can mean that a thin spread is being handed straight back through fees and adverse selection.
+
+The chart below is an excerpt from a bounded passive BTCUSDT perpetual-market-making test. Stronger inventory skew made the loss appear smaller. At the same time, it reduced the number of fills sharply. Before calling that “better defence,” the first question is whether the strategy simply stopped participating.
+
+<ResearchFigure
+  src="images/research/hft/passive-liquidity-frontier.svg"
+  alt="A scatter chart from a bounded passive quoting test showing daily trade count and daily PnL, where fewer trades reduced losses without establishing positive expected value"
+  caption="An actual research excerpt. This is not a ranking of strategies; it illustrates why PnL, activity and fill quality need to be read together."
+/>
+
+If I looked only at daily PnL here, the configuration losing 25 USDT per day would appear best. But it traded only 213 times per day, a different object from configurations trading thousands or tens of thousands of times. I would not call it a low-loss candidate; I would call it a candidate with too little activity to establish an edge.
+
+## Five layers after a backtest
+
+The relative weights differ by strategy and venue. An inventory-heavy strategy should weight inventory risk more; an ultra-short-horizon strategy should weight latency and queue position more. Still, this is the baseline sequence I use for passive strategies.
+
+| Layer | First things to inspect | Misreading it prevents |
+| --- | --- | --- |
+| Net PnL | PnL after fees, rebates and conservative exit costs | Calling gross spread profit |
+| Activity | Trade count, notional, time in market and fill rate | Calling near-inactivity an improvement |
+| Inventory & execution | Inventory tails, holding time, markout, partial fills and latency | Trusting convenient fill assumptions |
+| Robustness | Worst fold, dispersion, sensitivity and suspiciously smooth outputs | Generalising from one setting or one period |
+| Final OOS | A final sample unavailable during research | Calling a selected period out of sample |
+
+<ResearchFigure
+  src="images/research/hft/backtest-reading-framework.svg"
+  alt="A five-step market-making backtest framework that checks net PnL, activity, inventory and execution, robustness and locked out-of-sample evaluation"
+  caption="My reading order. A result is not adopted if it fails a lower layer, even when a headline PnL metric looks attractive. The final OOS remains closed during research."
+/>
+
+## When a number looks too good, audit it first
+
+An extremely high win rate, no losing days or an implausibly large annualised Sharpe are not “good results” to me. They are prompts to inspect the fill model, future-data leakage, timestamp alignment, fee direction and partial-fill handling.
+
+In the existing passive-MM work, worst-fold PnL, Deflated Sharpe Ratio and anomaly flags such as zero losing days are used as acceptance gates. A threshold such as DSR 0.95 is not a universal truth. It is a personal stopping line: an attractive result does not move forward before its reproducibility is challenged.
+
+## How to read results on this site
+
+Future research notes will not report only a headline PnL. At a minimum, they will identify the data period, cost assumptions, level of activity, data reserved as OOS and the important limitations.
+
+A good backtest is not the one with the largest number. It is the one that can explain **which assumptions would make that number disappear**.

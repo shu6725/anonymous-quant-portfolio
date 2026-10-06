@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Framework for reading a market-making backtest</title>
+  <desc id="desc">A five-step ladder shows net PnL, activity, inventory and execution quality, robustness, and locked out-of-sample evaluation.</desc>
+  <rect width="1200" height="650" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">How I read a market-making backtest</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">A result advances only when it survives every layer below. No single metric is a performance verdict.</text>
+    <g>
+      <rect x="72" y="142" width="1056" height="74" fill="#e7f0ef" stroke="#0f5966"/>
+      <text x="102" y="171" fill="#0a424d" font-size="14" font-weight="700" letter-spacing="1">01 · NET PNL</text>
+      <text x="310" y="171" fill="#172026" font-size="17" font-weight="700">Are fees, rebates, marking and exit costs already included?</text>
+      <text x="310" y="195" fill="#5c676f" font-size="14">Gross spread capture is not the result.</text>
+      <rect x="72" y="228" width="950" height="74" fill="#fcfcfa" stroke="#d9dedb"/>
+      <text x="102" y="257" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">02 · ACTIVITY</text>
+      <text x="310" y="257" fill="#172026" font-size="17" font-weight="700">How many trades, how much notional and how much time in market?</text>
+      <text x="310" y="281" fill="#5c676f" font-size="14">A small loss can simply mean that the strategy did almost nothing.</text>
+      <rect x="72" y="314" width="844" height="74" fill="#fcfcfa" stroke="#d9dedb"/>
+      <text x="102" y="343" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">03 · INVENTORY &amp; EXECUTION</text>
+      <text x="385" y="343" fill="#172026" font-size="17" font-weight="700">What happens after fills, and can the assumed fills be trusted?</text>
+      <text x="385" y="367" fill="#5c676f" font-size="14">Inspect markout, inventory tails, queue assumptions, latency and partial fills.</text>
+      <rect x="72" y="400" width="738" height="74" fill="#fcfcfa" stroke="#d9dedb"/>
+      <text x="102" y="429" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">04 · ROBUSTNESS</text>
+      <text x="310" y="429" fill="#172026" font-size="17" font-weight="700">Does the worst fold survive? Does a deflated Sharpe check pass?</text>
+      <text x="310" y="453" fill="#5c676f" font-size="14">An unusually smooth result is a reason to audit the model, not celebrate it.</text>
+      <rect x="72" y="486" width="632" height="74" fill="#f9ece8" stroke="#b44b3d"/>
+      <text x="102" y="515" fill="#8a372c" font-size="14" font-weight="700" letter-spacing="1">05 · LOCKED OOS</text>
+      <text x="310" y="515" fill="#172026" font-size="17" font-weight="700">Was the final test truly unavailable during research?</text>
+      <text x="310" y="539" fill="#6f4d47" font-size="14">Only then is it a final evaluation rather than another selection fold.</text>
+      <path d="M1040 228h28v332h-28" fill="none" stroke="#0f5966" stroke-width="2"/>
+      <text x="1084" y="402" fill="#0f5966" font-size="14" font-weight="700" transform="rotate(90 1084 402)">acceptance ladder</text>
+    </g>
+    <text x="72" y="612" fill="#5c676f" font-size="13">The relative weights can vary by strategy and venue. This is the conservative baseline I use before a result is called promising.</text>
+  </g>
+</svg>
