@@ -17,7 +17,33 @@ import ResearchFigure from '../../../components/ResearchFigure.astro';
 
 > **Research framework**
 >
-> This is the baseline note that comes before individual strategy results. Some figures use excerpts from independent simulations, but this is neither investment advice nor a record of live trading performance.
+> This is the baseline note that comes before individual strategy results. The first dashboard below is a teaching example, not live performance or a strategy result. A small excerpt from an independent simulation appears later in the note.
+
+## Start with the backtest output, not the headline metric
+
+For a market-making backtest, I first want ordinary outputs rather than a striking headline number. An equity curve can look persuasive on its own. That is why I put drawdown, daily PnL, trade count and inventory on the same time axis before drawing a conclusion.
+
+<ResearchFigure
+  src="images/research/hft/backtest-dashboard-example.svg"
+  alt="An illustrative market-making backtest dashboard showing cumulative net PnL, drawdown, daily net PnL, trades per day and maximum inventory."
+  caption="Illustrative dashboard. The normalized data is for explanation only, not live performance or an independent research result. The point is to read the panels together rather than to optimise a headline number."
+/>
+
+### 1. The equity curve is the starting point
+
+The top panel, **Cumulative net PnL**, should at least include fees and conservative exit costs. Even when it rises from left to right, I do not call a strategy viable yet. The curve alone cannot show whether a few exceptional days created the result, whether it depended on a large inventory position, or whether a small cost change would erase it.
+
+### 2. Drawdown shows the cost of the curve
+
+**Drawdown** measures the fall from the running peak. I look beyond its maximum: how long did the decline last, and how quickly did it recover? A strategy can end with a rising cumulative PnL while repeatedly producing drawdowns that would be difficult to hold through in practice.
+
+### 3. Daily PnL breaks open the average
+
+With **Daily net PnL**, distribution matters more than the average alone. Is the total carried by a handful of days? Are there suspiciously no losing days? Do the large losses cluster in a particular market condition or event? The bars make concentration that is hidden in an equity curve much easier to see.
+
+### 4. Activity and inventory give PnL its meaning
+
+The bottom-right panel checks **trades/day** and **max |inventory|** together. If activity has fallen close to zero, an improvement in PnL may only mean that the strategy stopped participating. If inventory tails are large, the result may be directional risk rather than spread capture. For market making, this panel is often as important as the curve itself.
 
 ## What a market maker is actually doing
 
@@ -44,7 +70,7 @@ $$
 
 Funding, latency, order sequencing and the cost of closing a position may add further terms. The point is not to treat this as a complete accounting identity. It is to start from the fact that **capturing spread is not enough**.
 
-## Why I do not stop at PnL
+## A small real example: smaller loss is not enough
 
 An apparent PnL improvement can simply mean that the strategy has almost stopped trading. Conversely, a high trade count can mean that a thin spread is being handed straight back through fees and adverse selection.
 
@@ -69,12 +95,6 @@ The relative weights differ by strategy and venue. An inventory-heavy strategy s
 | Inventory & execution | Inventory tails, holding time, markout, partial fills and latency | Trusting convenient fill assumptions |
 | Robustness | Worst fold, dispersion, sensitivity and suspiciously smooth outputs | Generalising from one setting or one period |
 | Final OOS | A final sample unavailable during research | Calling a selected period out of sample |
-
-<ResearchFigure
-  src="images/research/hft/backtest-reading-framework.svg"
-  alt="A five-step market-making backtest framework that checks net PnL, activity, inventory and execution, robustness and locked out-of-sample evaluation"
-  caption="My reading order. A result is not adopted if it fails a lower layer, even when a headline PnL metric looks attractive. The final OOS remains closed during research."
-/>
 
 ## When a number looks too good, audit it first
 
