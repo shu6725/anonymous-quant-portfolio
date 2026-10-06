@@ -1,0 +1,87 @@
+---
+title: "Why passive liquidity is difficult to monetize"
+description: "A short research note on spreads, inventory control, fees and fill assumptions in a bounded BTCUSDT perpetual simulation."
+locale: en
+route: passive-liquidity-research-note
+date: 2026-10-06
+category: "Market Microstructure"
+tags:
+  - Market Making
+  - Backtesting
+  - Execution
+  - Research Process
+draft: false
+---
+
+import ResearchFigure from '../../../components/ResearchFigure.astro';
+import MetricCallout from '../../../components/MetricCallout.astro';
+
+> **Research note / work in progress**
+>
+> This is an interim result from an independent simulation using public data. It uses no employer or client data. It is not investment advice, nor a general conclusion about a venue or market making as a whole.
+
+## The short answer
+
+The test makes one point clear: putting passive quotes into a book is not, by itself, a way to earn the spread. In a BTCUSDT perpetual simulation with a retail-like maker fee of **+2 bps** and a taker fee of **+5 bps**, wider static quotes, inventory skew and a simple top-of-book order-flow-imbalance skew did not establish a positive passive edge.
+
+<MetricCallout
+  label="Observed in this bounded test"
+  value="Loss reduction was not evidence of edge"
+  detail="Reducing fills made the loss appear smaller; it did not produce an adoptable positive expectation."
+/>
+
+This is not a claim that market making always loses. It is a negative result for a stated sample, cost schedule, latency model and queue model.
+
+## What was tested
+
+| Item | Setting in this note |
+| --- | --- |
+| Market | Simulation built from public BTCUSDT perpetual-market data |
+| Research sample | 22 observed days and seven rolling walk-forward folds |
+| Costs | maker +2 bps, taker +5 bps |
+| Execution assumptions | approximately 50ms constant order latency, a probabilistic queue model and no partial fills |
+| Reservation | six locked out-of-sample days were not accessed during research |
+
+<ResearchFigure
+  src="images/research/hft/research-split.svg"
+  alt="A diagram separating a 22-observed-day research window with seven rolling tests from six locked out-of-sample days"
+  caption="Research protocol. The numbers in this note are research-period results, not a final out-of-sample result."
+/>
+
+That separation is deliberately unglamorous. Once the research-period result can be inspected repeatedly, a good-looking parameter set will eventually appear. Keeping the final sample closed is part of the result, not an administrative detail.
+
+## Wider quotes did not remove toxic fills
+
+The first hypothesis was straightforward: if tight quotes are selected adversely, widening them should help. In a two-day test, moving the half-spread from two to eight ticks improved PnL only modestly, from **−9,723** to **−8,750 USDT**. Both test days remained negative.
+
+Wider quotes can reduce activity. They do not necessarily change the quality of the fills that remain. Stronger inventory skew reduced the observed loss almost to zero, but only because the strategy was barely trading. Avoiding trades is not the same as discovering a source of return.
+
+<ResearchFigure
+  src="images/research/hft/passive-liquidity-frontier.svg"
+  alt="A scatter chart showing that configurations with more passive fills had more negative daily PnL in a bounded test"
+  caption="Activity–toxicity frontier. A summary of selected fold-0 tests. Fewer fills reduced the loss, but did not establish a positive expected value."
+/>
+
+The `inventory skew 1.0` point is closer to a useful baseline than a candidate strategy: if a strategy almost never trades, it will often lose less. PnL should therefore be read with trade count, volume and inventory residence time—not in isolation.
+
+## A profitable rebate scenario was still not adopted
+
+The picture changed under a maker rebate assumption. With a **−2 bps** maker fee, high-frequency static quoting was positive in all seven rolling research folds and produced about **+1,495 USDT per day**.
+
+That was a reason to audit the output, not to call it a discovery. The Deflated Sharpe Ratio was **0.921**, below the pre-stated 0.95 threshold. The absence of losing days and an annualized-Sharpe flag of 29.5 also suggest that queue and fill assumptions may be too optimistic. The locked out-of-sample window remains closed.
+
+<ResearchFigure
+  src="images/research/hft/research-acceptance-gates.svg"
+  alt="A flow diagram showing that a positive rebate simulation failed robustness and model-sanity acceptance gates and was not promoted"
+  caption="Acceptance gates. The more attractive an output appears, the more carefully its fill assumptions and validation design should be questioned."
+/>
+
+The point of research is not to select the most attractive chart. It is to advance only the results that survive reproducibility, costs and execution realism.
+
+## What this note does—and does not—say
+
+It says only that this family of simple passive quoting rules did not show a clear positive edge under the stated costs, latency and fill assumptions.
+
+It does not establish live-execution performance, results for a different fee tier, co-located infrastructure, other instruments or other market regimes. In particular, a queue model without partial fills can distort passive-fill realism in either direction. That is the next item to audit—not an assumption to hide in pursuit of a stronger result.
+
+Before opening the locked out-of-sample sample, the next work is to test fill-model sensitivity, data coverage and independent short-horizon predictive signals. The goal is not to rush toward a “winning” configuration; it is to isolate which assumptions are moving the conclusion.

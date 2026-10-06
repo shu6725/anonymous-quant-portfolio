@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Research and locked out-of-sample separation</title>
+  <desc id="desc">A timeline showing the 22-day research sample, rolling walk-forward tests and six locked out-of-sample days that were not accessed during research.</desc>
+  <rect width="1200" height="500" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">Separate the research sample from the final test</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">The article reports research-period walk-forward tests only. The final six days were deliberately untouched.</text>
+    <text x="72" y="166" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">RESEARCH WINDOW · 22 OBSERVED DAYS</text>
+    <rect x="72" y="192" width="760" height="72" fill="#e7f0ef" stroke="#0f5966"/>
+    <g stroke="#8fb4b2" stroke-width="1"><line x1="180" y1="192" x2="180" y2="264"/><line x1="288" y1="192" x2="288" y2="264"/><line x1="396" y1="192" x2="396" y2="264"/><line x1="504" y1="192" x2="504" y2="264"/><line x1="612" y1="192" x2="612" y2="264"/><line x1="720" y1="192" x2="720" y2="264"/></g>
+    <text x="95" y="222" fill="#0a424d" font-size="15" font-weight="700">7 rolling folds</text>
+    <text x="95" y="247" fill="#36514e" font-size="14">Select 7 days → embargo 1 day → test 2 days → roll forward 2 days</text>
+    <line x1="850" y1="228" x2="916" y2="228" stroke="#aebbb8" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="883" y="208" fill="#5c676f" font-size="13" text-anchor="middle">boundary</text>
+    <text x="936" y="166" fill="#8a372c" font-size="14" font-weight="700" letter-spacing="1">LOCKED OUT-OF-SAMPLE · 6 DAYS</text>
+    <rect x="936" y="192" width="192" height="72" fill="#f9ece8" stroke="#b44b3d"/>
+    <text x="960" y="222" fill="#8a372c" font-size="15" font-weight="700">Not accessed</text>
+    <text x="960" y="247" fill="#6f4d47" font-size="14">Reserved for final evaluation</text>
+    <g fill="#5c676f" font-size="14">
+      <text x="72" y="320">What this protects:</text>
+      <text x="72" y="351">• parameter decisions cannot be revised after observing the final test</text>
+      <text x="72" y="382">• an attractive research result is not confused with independently confirmed performance</text>
+      <text x="72" y="413">• the current note remains a bounded research observation, not a live trading claim</text>
+    </g>
+  </g>
+</svg>

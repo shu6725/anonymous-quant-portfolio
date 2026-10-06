@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">Passive market-making activity and PnL frontier</title>
+  <desc id="desc">A chart of three passive quoting configurations. Trading more often coincided with greater daily losses in this bounded research test.</desc>
+  <rect width="1200" height="660" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">Passive quoting: activity did not become edge</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">Fold-0 test summary · BTCUSDT perpetual simulation · maker fee +2 bps</text>
+    <g stroke="#d9dedb" stroke-width="1">
+      <line x1="130" y1="154" x2="1134" y2="154"/><line x1="130" y1="240" x2="1134" y2="240"/><line x1="130" y1="326" x2="1134" y2="326"/><line x1="130" y1="412" x2="1134" y2="412"/><line x1="130" y1="498" x2="1134" y2="498"/>
+    </g>
+    <line x1="130" y1="154" x2="1134" y2="154" stroke="#0f5966" stroke-width="2"/>
+    <line x1="130" y1="154" x2="130" y2="498" stroke="#75817e" stroke-width="1"/>
+    <line x1="130" y1="498" x2="1134" y2="498" stroke="#75817e" stroke-width="1"/>
+    <g fill="#5c676f" font-size="14" text-anchor="end">
+      <text x="112" y="159">0</text><text x="112" y="245">−1,250</text><text x="112" y="331">−2,500</text><text x="112" y="417">−3,750</text><text x="112" y="503">−5,000</text>
+    </g>
+    <text x="26" y="338" fill="#5c676f" font-size="14" transform="rotate(-90 26 338)">PnL / day (USDT)</text>
+    <g fill="#5c676f" font-size="14" text-anchor="middle">
+      <text x="185" y="530">100</text><text x="345" y="530">500</text><text x="486" y="530">1,000</text><text x="740" y="530">5,000</text><text x="922" y="530">10,000</text><text x="1110" y="530">25,000</text>
+    </g>
+    <text x="634" y="579" fill="#5c676f" font-size="14" text-anchor="middle">Trades / day (log scale)</text>
+    <line x1="865" y1="455" x2="1037" y2="455" stroke="#b44b3d" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="944" cy="455" r="11" fill="#b44b3d"/>
+    <line x1="944" y1="455" x2="944" y2="431" stroke="#b44b3d" stroke-width="1.5"/>
+    <text x="944" y="406" fill="#172026" font-size="16" font-weight="700" text-anchor="middle">Vanilla quotes</text>
+    <text x="944" y="429" fill="#5c676f" font-size="14" text-anchor="middle">3.9k–16k trades · −4,375 / day</text>
+    <circle cx="500" cy="172" r="11" fill="#0f5966"/>
+    <line x1="500" y1="172" x2="500" y2="220" stroke="#0f5966" stroke-width="1.5"/>
+    <text x="500" y="244" fill="#172026" font-size="16" font-weight="700" text-anchor="middle">Inventory skew 0.5</text>
+    <text x="500" y="267" fill="#5c676f" font-size="14" text-anchor="middle">1,166 trades · −264 / day</text>
+    <circle cx="246" cy="156" r="11" fill="#0f5966"/>
+    <line x1="246" y1="156" x2="246" y2="124" stroke="#0f5966" stroke-width="1.5"/>
+    <text x="246" y="116" fill="#172026" font-size="16" font-weight="700" text-anchor="middle">Inventory skew 1.0</text>
+    <text x="246" y="137" fill="#5c676f" font-size="14" text-anchor="middle">213 trades · −25 / day</text>
+    <rect x="72" y="610" width="1062" height="1" fill="#d9dedb"/>
+    <text x="72" y="638" fill="#5c676f" font-size="13">Interpretation: fewer fills reduced the observed loss, but did not establish a positive passive-liquidity edge.</text>
+  </g>
+</svg>

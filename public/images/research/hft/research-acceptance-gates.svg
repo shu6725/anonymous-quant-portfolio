@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Research acceptance gates for a positive simulated result</title>
+  <desc id="desc">A four-stage flow diagram shows why a positive maker-rebate simulation result was not adopted.</desc>
+  <rect width="1200" height="650" fill="#ffffff"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="72" y="64" fill="#172026" font-size="26" font-weight="700">A positive output is not an adoption decision</text>
+    <text x="72" y="94" fill="#5c676f" font-size="16">The maker-rebate scenario was treated as a candidate for audit, not as a result to market.</text>
+    <g stroke="#aebbb8" stroke-width="2" fill="none"><path d="M 600 190 L 600 228"/><path d="M 600 336 L 600 374"/><path d="M 600 482 L 600 520"/></g>
+    <g fill="#aebbb8"><path d="M594 222h12l-6 8z"/><path d="M594 368h12l-6 8z"/><path d="M594 514h12l-6 8z"/></g>
+    <rect x="210" y="120" width="780" height="70" fill="#e7f0ef" stroke="#0f5966"/>
+    <text x="242" y="150" fill="#0a424d" font-size="14" font-weight="700" letter-spacing="1">SIMULATION CANDIDATE</text>
+    <text x="242" y="174" fill="#172026" font-size="18">−2 bps maker fee · +1,495 USDT / day · seven rolling research folds positive</text>
+    <rect x="210" y="228" width="780" height="108" fill="#fcfcfa" stroke="#d9dedb"/>
+    <text x="242" y="260" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">ROBUSTNESS CHECK</text>
+    <text x="242" y="286" fill="#172026" font-size="18">Deflated Sharpe Ratio: 0.921</text>
+    <text x="242" y="311" fill="#b44b3d" font-size="16">Threshold: 0.95 → does not clear the stated gate</text>
+    <rect x="210" y="374" width="780" height="108" fill="#fcfcfa" stroke="#d9dedb"/>
+    <text x="242" y="406" fill="#0f5966" font-size="14" font-weight="700" letter-spacing="1">MODEL-SANITY CHECK</text>
+    <text x="242" y="432" fill="#172026" font-size="18">Zero losing days and a 29.5 annualized-Sharpe flag</text>
+    <text x="242" y="457" fill="#b44b3d" font-size="16">Treat fill-model optimism as a possible bug before calling it an edge</text>
+    <rect x="210" y="520" width="780" height="70" fill="#f9ece8" stroke="#b44b3d"/>
+    <text x="242" y="550" fill="#8a372c" font-size="14" font-weight="700" letter-spacing="1">DECISION</text>
+    <text x="242" y="574" fill="#172026" font-size="18">Not promoted. Six locked out-of-sample days remain reserved for a final evaluation.</text>
+    <text x="72" y="628" fill="#5c676f" font-size="13">Acceptance criteria are designed to reject attractive but fragile outputs; they are not proof that a rejected idea can never work.</text>
+  </g>
+</svg>
